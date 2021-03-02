@@ -1,5 +1,9 @@
 require('dotenv').config();
 
+const {
+  api: { projectId, dataset },
+} = requireConfig('../studio/sanity.json');
+
 module.exports = {
   siteMetadata: {
     title: 'DupeVFX',
@@ -12,8 +16,8 @@ module.exports = {
     {
       resolve: 'gatsby-source-sanity',
       options: {
-        projectId: 'kbmcuoo3',
-        dataset: process.env.SANITY_STUDIO_API_DATASET,
+        projectId: projectId,
+        dataset: dataset,
         token: process.env.SANITY_TOKEN,
         watchMode: true,
         overlayDrafts: true,
@@ -29,8 +33,8 @@ module.exports = {
       resolve: 'gatsby-plugin-sanity-image',
       options: {
         // Sanity project info (required)
-        projectId: 'kbmcuoo3',
-        dataset: process.env.SANITY_STUDIO_API_DATASET,
+        projectId: projectId,
+        dataset: dataset,
         defaultImageConfig: {
           quality: 100,
           fit: 'max',
@@ -76,3 +80,19 @@ module.exports = {
     'gatsby-remark-images',
   ],
 };
+
+function requireConfig(path) {
+  try {
+    return require(path);
+  } catch (e) {
+    console.error(
+      'Failed to require sanity.json. Fill in projectId and dataset name manually in gatsby-config.js'
+    );
+    return {
+      api: {
+        projectId: process.env.SANITY_PROJECT_ID || '',
+        dataset: process.env.SANITY_DATASET || '',
+      },
+    };
+  }
+}
