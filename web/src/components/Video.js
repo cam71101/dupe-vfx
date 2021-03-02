@@ -4,7 +4,6 @@ import styled from 'styled-components';
 const VideoContainer = styled.div`
   overflow: hidden;
   transition: opacity 10000ms ease; */}
-
   position: relative;
   height: 100vh;
   max-width: 100vw;
@@ -15,6 +14,7 @@ const VideoContainer = styled.div`
   -webkit-backface-visibility: hidden;
   outline: 1px solid transparent;
   box-shadow: 0 0 1px rgba(255,255,255,0);
+  z-index: 1
 `;
 
 const VideoPlayer = styled.iframe`
