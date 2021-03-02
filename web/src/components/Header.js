@@ -109,9 +109,9 @@ const Header = ({ logo, bcorpLogo }) => {
         <Container>
           {links.map((value) => (
             <TextContainer>
-              {/* <StyledLink to={'/' + value.replace(' ', '').toLowerCase()}> */}
-              <Text>{value} </Text>
-              {/* </StyledLink> */}
+              <StyledLink to={'/' + value.replace(' ', '').toLowerCase()}>
+                <Text>{value} </Text>
+              </StyledLink>
             </TextContainer>
           ))}
         </Container>

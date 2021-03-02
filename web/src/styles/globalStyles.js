@@ -1,8 +1,14 @@
 import { createGlobalStyle } from 'styled-components';
+import reset from 'styled-reset';
 
 import colors from './colours';
 
-const GlobalStyle = createGlobalStyle`  
+const GlobalStyle = createGlobalStyle` 
+   ${reset}
+  *, *:before, *:after {
+    box-sizing: border-box;
+  }
+
 html {
     font-size: 15.5px;
       box-sizing: border-box;
@@ -59,3 +65,8 @@ h2, h3, h4, h5, h6, p {
 `;
 
 export default GlobalStyle;
+
+// ${reset}
+// *, *:before, *:after {
+//   box-sizing: border-box;
+// }

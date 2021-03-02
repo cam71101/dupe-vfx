@@ -1,9 +1,9 @@
 import * as React from 'react';
 import Header from './Header';
 import Footer from './Footer';
-// import GlobalStyle from '../styles/globalStyles';
+import GlobalStyle from '../styles/globalStyles';
 import styled from 'styled-components';
-// import './Layout.css';
+import './Layout.css';
 import { StaticQuery, graphql } from 'gatsby';
 import colours from '../styles/colours';
 import Img from 'gatsby-image';
@@ -70,7 +70,7 @@ const Layout = (props) => {
       render={(data) => {
         return (
           <Main>
-            {/* <GlobalStyle /> */}
+            <GlobalStyle />
             <Image
               fluid={data.bcorpLogo.childImageSharp.fluid}
               style={{
