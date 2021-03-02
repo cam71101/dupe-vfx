@@ -8,7 +8,7 @@ h2, h3, h4, h5, h6, p {
 }
  h1 {
     margin: 0;
-    font-size: 13rem;
+    font-size: 200px;
     font-weight: 600;
     color: ${colors.offWhite}
   }
