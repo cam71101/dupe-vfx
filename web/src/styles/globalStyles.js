@@ -2,10 +2,18 @@ import { createGlobalStyle } from 'styled-components';
 
 import colors from './colours';
 
-const GlobalStyle = createGlobalStyle`
+const GlobalStyle = createGlobalStyle`  
 html {
-    font-size: 100%;
+    font-size: 15.5px;
   }
+body {
+  margin: 0;
+  font-family: 'Euclid Regular';
+  list-style-type: none;
+  background-color: black;
+  box-sizing: border-box;
+}
+
 h2, h3, h4, h5, h6, p {
   color: inherit;
 }
