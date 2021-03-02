@@ -5,6 +5,7 @@ body {
   font-family: 'Euclid Regular';
   list-style-type: none;
   background-color: black;
+  box-sizing: border-box;
 }
 
 a {
