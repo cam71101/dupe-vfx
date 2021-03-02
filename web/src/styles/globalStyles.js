@@ -3,6 +3,9 @@ import { createGlobalStyle } from 'styled-components';
 import colors from './colours';
 
 const GlobalStyle = createGlobalStyle`
+html {
+    font-size: 100%;
+  }
 h2, h3, h4, h5, h6, p {
   color: inherit;
 }
