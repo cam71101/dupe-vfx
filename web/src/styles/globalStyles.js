@@ -5,14 +5,15 @@ import colors from './colours';
 
 const GlobalStyle = createGlobalStyle` 
    ${reset}
-  *, *:before, *:after {
-    box-sizing: border-box;
-  }
 
 html {
     font-size: 15.5px;
-      box-sizing: border-box;
+     box-sizing: border-box;
   }
+
+  *, *:before, *:after {
+  box-sizing: inherit;
+}
 body {
   margin: 0;
   font-family: 'Euclid Regular';
