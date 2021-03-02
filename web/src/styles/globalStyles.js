@@ -5,6 +5,7 @@ import colors from './colours';
 const GlobalStyle = createGlobalStyle`  
 html {
     font-size: 15.5px;
+      box-sizing: border-box;
   }
 body {
   margin: 0;
@@ -12,7 +13,7 @@ body {
   list-style-type: none;
   background-color: black;
   box-sizing: border-box;
-}
+} 
 
 h2, h3, h4, h5, h6, p {
   color: inherit;
