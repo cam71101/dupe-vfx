@@ -12,8 +12,8 @@ module.exports = {
     {
       resolve: 'gatsby-source-sanity',
       options: {
-        projectId: 'kbmcuoo3',
-        dataset: 'production',
+        projectId: process.env.PROJECT_ID,
+        dataset: process.env.DATASET,
         token: process.env.SANITY_TOKEN,
         watchMode: true,
         overlayDrafts: true,
@@ -29,8 +29,8 @@ module.exports = {
       resolve: 'gatsby-plugin-sanity-image',
       options: {
         // Sanity project info (required)
-        projectId: 'kbmcuoo3',
-        dataset: 'production',
+        projectId: process.env.PROJECT_ID,
+        dataset: process.env.DATASET,
         defaultImageConfig: {
           quality: 100,
           fit: 'max',
