@@ -10,7 +10,7 @@ import Img from 'gatsby-image';
 
 const Main = styled.main`
   min-height: 100vh;
-  width: 100vw;
+  max-width: 100vw;
 `;
 
 const Image = styled(Img)`
@@ -70,7 +70,7 @@ const Layout = (props) => {
       render={(data) => {
         return (
           <Main>
-            <GlobalStyle />
+            {/* <GlobalStyle /> */}
             <Image
               fluid={data.bcorpLogo.childImageSharp.fluid}
               style={{
