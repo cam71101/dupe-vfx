@@ -12,7 +12,7 @@ module.exports = {
     {
       resolve: 'gatsby-source-sanity',
       options: {
-        projectId: process.env.SANITY_STUDIO_API_PROJECT_ID,
+        projectId: 'kbmcuoo3',
         dataset: process.env.SANITY_STUDIO_API_DATASET,
         token: process.env.SANITY_TOKEN,
         watchMode: true,
@@ -29,7 +29,7 @@ module.exports = {
       resolve: 'gatsby-plugin-sanity-image',
       options: {
         // Sanity project info (required)
-        projectId: process.env.SANITY_STUDIO_API_PROJECT_ID,
+        projectId: 'kbmcuoo3',
         dataset: process.env.SANITY_STUDIO_API_DATASET,
         defaultImageConfig: {
           quality: 100,
