@@ -7,7 +7,6 @@ import './Layout.css';
 import { StaticQuery, graphql } from 'gatsby';
 import colours from '../styles/colours';
 import Img from 'gatsby-image';
-import { BaseCSS } from 'styled-bootstrap-grid';
 
 const Main = styled.main`
   min-height: 100vh;
@@ -72,7 +71,6 @@ const Layout = (props) => {
         return (
           <Main>
             <GlobalStyle />
-            <BaseCSS />
             <Image
               fluid={data.bcorpLogo.childImageSharp.fluid}
               style={{
