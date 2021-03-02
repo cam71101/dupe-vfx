@@ -95,9 +95,9 @@ const Text = styled.span`
   }
 `;
 
-const Header = ({ logo, bcorpLogo }) => {
-  const links = ['WORK', 'ABOUT', 'JOIN US', 'NEWS'];
+const links = ['WORK', 'ABOUT', 'JOIN US', 'NEWS'];
 
+const Header = ({ logo, bcorpLogo }) => {
   const StyledLink = styled(Link)`
     ${'' /* &:focus::before */}
   `;
@@ -109,7 +109,7 @@ const Header = ({ logo, bcorpLogo }) => {
         <Container>
           {links.map((value) => (
             <TextContainer>
-              <StyledLink to={'/' + value.replaceAll(' ', '').toLowerCase()}>
+              <StyledLink to={'/' + value.replace(' ', '').toLowerCase()}>
                 <Text>{value} </Text>
               </StyledLink>
             </TextContainer>
