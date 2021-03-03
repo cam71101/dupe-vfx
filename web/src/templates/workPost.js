@@ -12,6 +12,7 @@ import SanityImage from 'gatsby-plugin-sanity-image';
 
 const Section = styled.section`
   width: 100%;
+
   padding-top: 4rem;
   margin-bottom: 10rem;
 `;
@@ -22,9 +23,9 @@ const Container = styled.div`
   > h1 {
     color: ${colours.offWhite};
   }
-  > h2 {
+  ${'' /* > h2 {
     padding-bottom: 5rem;
-  }
+  } */}
   display: flex;
   flex-direction: column;
 `;
@@ -48,7 +49,7 @@ const VideoSection = styled.section`
   bottom: 0;
   left: 0;
   position: relative;
-  height: 80rem;
+  height: 100vh;
   overflow: hidden;
 `;
 
@@ -79,8 +80,9 @@ const BodyContainer = styled.div`
     color: ${colours.offWhite};
   }
   > div > p {
-    padding-right: 10rem;
+    ${'' /* padding-right: 10rem; */}
   }
+  margin-bottom: 7rem;
 `;
 
 const Test = styled.div`
@@ -117,7 +119,23 @@ const VideoPlayer = styled.iframe`
   ${'' /* width: 100% */}
 `;
 
-const CreditsContainer = styled.div``;
+const VideoContainer = styled.div`
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+`;
+
+const YouTube = styled.iframe`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+`;
+
+const CreditsContainer = styled.div`
+  padding-left: 10rem;
+`;
 
 const WorkPost = ({ data }) => {
   const [isLoading, setIsLoading] = React.useState(true);
@@ -165,7 +183,6 @@ const WorkPost = ({ data }) => {
             />
           </Test>
         ) : null}
-
         <>
           {isLoading && data.post.showReel ? (
             <PlayButton
@@ -179,12 +196,14 @@ const WorkPost = ({ data }) => {
 
           <SanityImage
             {...data.post.image}
-            width={2000}
             style={{
               position: 'absolute',
               zIndex: 2,
               opacity: opacity,
               transition: 'opacity 500ms ease',
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
             }}
             alt="Sweet Christmas!"
           />
@@ -193,6 +212,7 @@ const WorkPost = ({ data }) => {
       <Section>
         <Container>
           <h1>{data.post.title}</h1>
+          <h2>{data.post.subtitle}</h2>
           <BodyContainer>
             <BlockContent
               blocks={data.post.children}
@@ -211,6 +231,16 @@ const WorkPost = ({ data }) => {
               </CreditsContainer>
             ) : null}
           </BodyContainer>
+          <VideoContainer>
+            {data.post.trailer && (
+              <YouTube
+                src={data.post.trailer}
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture fullscreen"
+                allowfullscreen
+              />
+            )}
+          </VideoContainer>
         </Container>
       </Section>
     </Layout>
@@ -225,6 +255,7 @@ export const query = graphql`
       showReel
       trailer
       title
+      subtitle
       image {
         ...ImageWithPreview
       }

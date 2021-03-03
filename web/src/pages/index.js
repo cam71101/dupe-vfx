@@ -61,6 +61,8 @@ const DescriptionContainer = styled(Container)`
     color: ${colours.offWhite};
     margin-bottom: 5rem;
   }
+  > div {
+  }
 `;
 
 const FeaturedWorkSection = styled(Section)`

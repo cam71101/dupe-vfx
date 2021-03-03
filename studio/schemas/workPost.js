@@ -11,6 +11,11 @@ export default {
       type: 'string',
     },
     {
+      title: 'Sub Title',
+      name: 'subtitle',
+      type: 'string',
+    },
+    {
       title: 'Slug',
       name: 'slug',
       type: 'slug',
@@ -58,6 +63,9 @@ export default {
       name: 'thumbnail',
       title: 'Thumbnail',
       type: 'image',
+      options: {
+        hotspot: true,
+      },
     },
     {
       name: 'body',

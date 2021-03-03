@@ -40,10 +40,14 @@ const Work = ({ data }) => {
           <h1>Work</h1>
           <CardContainer>
             {data.posts.nodes.map((value) => {
+              let image;
+              value.thumbnail
+                ? (image = value.thumbnail)
+                : (image = value.image);
               return (
                 <WorkCard
                   title={value.title}
-                  image={value.image}
+                  image={image}
                   link={value.slug.current}
                 />
               );
@@ -70,12 +74,8 @@ export const query = graphql`
         image {
           ...ImageWithPreview
         }
-      }
-    }
-    file(relativePath: { eq: "dupe_holographic-bubble_still_04.png" }) {
-      childImageSharp {
-        fluid {
-          ...GatsbyImageSharpFluid_noBase64
+        thumbnail {
+          ...ImageWithPreview
         }
       }
     }

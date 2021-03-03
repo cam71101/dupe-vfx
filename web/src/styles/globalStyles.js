@@ -45,6 +45,8 @@ h2, h3, h4, h5, h6, p {
     font-size: 2.1rem;
     font-family: 'Euclid Light';
     font-weight: 100;
+    line-height: 3rem;
+    letter-spacing: .1rem
   }
   h4 {
     margin: 0;
@@ -66,6 +68,10 @@ h2, h3, h4, h5, h6, p {
   }
   li {
   font-size: 1.2rem;
+  }
+  figure {
+    margin-bottom: 3rem;
+    margin-top: 3rem;
   }
 `;
 
