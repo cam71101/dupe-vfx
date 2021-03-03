@@ -17,7 +17,7 @@ const MainContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 65%;
-  height: 10rem;
+  height: 8rem;
 `;
 
 const Container = styled.div`
@@ -64,7 +64,7 @@ const TextContainer = styled.div`
 `;
 
 const ImgContainer = styled.div`
-  flex-grow: 4;
+  flex-grow: 3;
   padding: 2rem;
 `;
 
