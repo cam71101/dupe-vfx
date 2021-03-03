@@ -11,7 +11,7 @@ html {
      box-sizing: border-box;
   }
 
-  *, *:before, *:after {
+*, *:before, *:after {
   box-sizing: inherit;
 }
 body {
@@ -27,18 +27,21 @@ h2, h3, h4, h5, h6, p {
 }
  h1 {
     margin: 0;
-    font-size: 200px;
+    font-size: 200px; 
     font-weight: 600;
-    color: ${colors.offWhite}
+    color: ${colors.offWhite};
+    margin-bottom: 1.5rem;
   }
   h2 {
     margin: 0;
     font-size: 5.2rem;
     font-weight: 600;
     font-family: 'Euclid Light';
+    margin-bottom: 2rem;
+    margin-top: 2rem;
   }
   h3 {
-    margin: 0;
+    margin-bottom: 1rem;
     font-size: 2.1rem;
     font-family: 'Euclid Light';
     font-weight: 100;
@@ -57,6 +60,7 @@ h2, h3, h4, h5, h6, p {
     font-family: 'Euclid Light';
   }
   p {
+    margin-bottom: 1rem;
     font-size: 1.2rem;
     line-height: 2.1rem;
   }
