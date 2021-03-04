@@ -15,7 +15,7 @@ const Root = styled.footer`
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+  z-index: 2;
   background-color: ${colours.offWhite};
 `;
 

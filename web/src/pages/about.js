@@ -3,21 +3,22 @@ import Layout from '../components/Layout';
 import styled from 'styled-components';
 import { graphql } from 'gatsby';
 import BlockContent from '@sanity/block-content-to-react';
-import SanityImage from 'gatsby-plugin-sanity-image';
+import colours from '../styles/colours';
+import sizes from '../styles/sizes';
+import Img from 'gatsby-image';
 
 const Main = styled.main`
   height: 100vh;
   max-width: 100vw;
-  background-color: black;
+  background-color: ${colours.black};
   positon: absolute;
-  ${'' /* margin-bottom: 12rem; */}
   overflow: hidden;
   position: relative;
 `;
 
 const Text = styled.div`
-  color: white;
-  width: 65%;
+  color: ${colours.white};
+  width: ${sizes.containerWidth};
   margin: auto;
   padding-top: 15rem;
   display: 'flex';
@@ -52,44 +53,37 @@ const About = ({ data }) => {
             <Description>
               <BlockContent blocks={data.allSanityAbout.edges[0].node.desc} />
             </Description>
-            {/* <Image fluid={data.allSanityAbout.edges[0].node.bgImage} /> */}
           </Info>
         </Text>
-        <SanityImage
-          {...data.allSanityAbout.edges[0].node.bgImageOne}
+        <Img
+          fluid={data.allSanityAbout.edges[0].node.bgImageOne.asset.fluid}
           style={{
             position: 'absolute',
             zIndex: 1,
-            transition: 'opacity 500ms ease',
             width: '50rem',
             top: '-10%',
             right: '-10%',
           }}
-          alt={data.allSanityAbout.edges[0].node.title}
         />
-        <SanityImage
-          {...data.allSanityAbout.edges[0].node.bgImageTwo}
+        <Img
+          fluid={data.allSanityAbout.edges[0].node.bgImageTwo.asset.fluid}
           style={{
             position: 'absolute',
             zIndex: 2,
-            transition: 'opacity 500ms ease',
             width: '60rem',
             top: '55%',
             right: '25%',
           }}
-          alt={data.allSanityAbout.edges[0].node.title}
         />
-        <SanityImage
-          {...data.allSanityAbout.edges[0].node.bgImageThree}
+        <Img
+          fluid={data.allSanityAbout.edges[0].node.bgImageThree.asset.fluid}
           style={{
             position: 'absolute',
             zIndex: 2,
-            transition: 'opacity 500ms ease',
             width: '60rem',
             top: '-30%',
             left: '-20%',
           }}
-          alt={data.allSanityAbout.edges[0].node.title}
         />
       </Main>
     </Layout>
@@ -104,12 +98,27 @@ export const query = graphql`
           title
           bgImageOne {
             ...ImageWithPreview
+            asset {
+              fluid {
+                ...GatsbySanityImageFluid_noBase64
+              }
+            }
           }
           bgImageTwo {
             ...ImageWithPreview
+            asset {
+              fluid {
+                ...GatsbySanityImageFluid_noBase64
+              }
+            }
           }
           bgImageThree {
             ...ImageWithPreview
+            asset {
+              fluid {
+                ...GatsbySanityImageFluid_noBase64
+              }
+            }
           }
           desc {
             _key

@@ -73,6 +73,17 @@ h2, h3, h4, h5, h6, p {
     margin-bottom: 3rem;
     margin-top: 3rem;
   }
+  img {
+  
+  }
+  ${
+    '' /* [data-lqip] {
+      width: 100rem
+    }
+  [data-loading] {
+      width: 100rem
+    } */
+  }
 `;
 
 export default GlobalStyle;

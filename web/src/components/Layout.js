@@ -5,7 +5,6 @@ import GlobalStyle from '../styles/globalStyles';
 import styled from 'styled-components';
 import './Layout.css';
 import { StaticQuery, graphql } from 'gatsby';
-import colours from '../styles/colours';
 import Img from 'gatsby-image';
 
 const Main = styled.main`
@@ -75,8 +74,8 @@ const Layout = (props) => {
               fluid={data.bcorpLogo.childImageSharp.fluid}
               style={{
                 position: 'fixed',
-                left: '21.5%',
-                // right: '50%',
+                right: '2%',
+                bottom: 0,
                 transform: 'translateX(-50%)',
                 opacity: isHide,
               }}

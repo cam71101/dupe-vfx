@@ -32,7 +32,6 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-sanity-image',
       options: {
-        // Sanity project info (required)
         projectId: projectId,
         dataset: dataset,
         defaultImageConfig: {
