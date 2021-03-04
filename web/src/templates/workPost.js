@@ -4,45 +4,30 @@ import styled from 'styled-components';
 import Layout from '../components/Layout';
 import BlockContent from '@sanity/block-content-to-react';
 import colours from '../styles/colours';
-import Img from 'gatsby-image';
-import Video from '../components/Video';
+import sizes from '../styles/sizes';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlayCircle } from '@fortawesome/free-solid-svg-icons';
 import SanityImage from 'gatsby-plugin-sanity-image';
 
 const Section = styled.section`
   width: 100%;
-
   padding-top: 4rem;
   margin-bottom: 10rem;
 `;
+
 const Container = styled.div`
-  width: 65%;
+  width: ${sizes.containerWidth};
   margin: auto;
   color: ${colours.white};
   > h1 {
     color: ${colours.offWhite};
   }
-  ${'' /* > h2 {
-    padding-bottom: 5rem;
-  } */}
+
   display: flex;
   flex-direction: column;
 `;
 
-const TitleContainer = styled.div`
-  position: relative;
-  width: 100%;
-`;
-
-const Title = styled.h1`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-`;
-
-const VideoSection = styled.section`
+const HeaderSection = styled.section`
   position: absolute;
   top: 0;
   right: 0;
@@ -52,8 +37,6 @@ const VideoSection = styled.section`
   height: 100vh;
   overflow: hidden;
 `;
-
-const Image = styled(Img)``;
 
 const PlayButton = styled(FontAwesomeIcon)`
   position: absolute;
@@ -79,13 +62,10 @@ const BodyContainer = styled.div`
   > div > h3 {
     color: ${colours.offWhite};
   }
-  > div > p {
-    ${'' /* padding-right: 10rem; */}
-  }
   margin-bottom: 7rem;
 `;
 
-const Test = styled.div`
+const VideoContainer = styled.div`
   position: absolute;
   width: auto;
   height: auto;
@@ -95,33 +75,11 @@ const Test = styled.div`
   outline: 1px solid transparent;
 `;
 
-const VideoPlayer = styled.iframe`
-  ${
-    '' /* position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  height: 100%; */
-  }
+const VideoPlayer = styled.iframe``;
 
-  ${
-    '' /* position: absolute;
-  width: auto;
-  height: auto;
-  min-width: 100%;
-  min-height: 100%;
-  top: 50%;
-  left: 50%; */
-  }
-
-  ${'' /* width: 100% */}
-`;
-
-const VideoContainer = styled.div`
+const YouTubeContainer = styled.div`
   position: relative;
-  padding-bottom: 56.25%; /* 16:9 */
+  padding-bottom: 56.25%;
   height: 0;
 `;
 
@@ -152,36 +110,24 @@ const WorkPost = ({ data }) => {
     opacity = 0;
   }
 
-  let buttonOpacity = 0.5;
-
-  if (!isLoading) {
-    buttonOpacity = 0;
-  }
-
-  console.log(data.post.showReel);
   return (
     <Layout>
-      <VideoSection>
+      <HeaderSection>
         {data.post.showReel ? (
-          <Test>
+          <VideoContainer>
             <VideoPlayer
               style={{
                 transform: 'scale(1.5) translate(16%, 10%)',
                 transition: 'opacity 500ms ease',
               }}
-              // onLoad={onLoad}
               src={data.post.showReel}
               title={'test'}
-              // allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
               allow="autoplay; fullscreen"
               frameBorder="0"
-              // webkitallowfullscreen="true"
-              // mozallowfullscreen="true"
-              // allowFullScreen
               width="1920"
               height="1080"
             />
-          </Test>
+          </VideoContainer>
         ) : null}
         <>
           {isLoading && data.post.showReel ? (
@@ -205,10 +151,10 @@ const WorkPost = ({ data }) => {
               height: '100%',
               objectFit: 'cover',
             }}
-            alt="Sweet Christmas!"
+            alt={data.post.title}
           />
         </>
-      </VideoSection>
+      </HeaderSection>
       <Section>
         <Container>
           <h1>{data.post.title}</h1>
@@ -218,7 +164,6 @@ const WorkPost = ({ data }) => {
               blocks={data.post.children}
               projectId="kbmcuoo3"
               dataset="production"
-              className="work-post-container"
             />
             {data.post._rawCredits ? (
               <CreditsContainer>
@@ -231,16 +176,16 @@ const WorkPost = ({ data }) => {
               </CreditsContainer>
             ) : null}
           </BodyContainer>
-          <VideoContainer>
-            {data.post.trailer && (
+          {data.post.trailer && (
+            <YouTubeContainer>
               <YouTube
                 src={data.post.trailer}
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture fullscreen"
                 allowfullscreen
               />
-            )}
-          </VideoContainer>
+            </YouTubeContainer>
+          )}
         </Container>
       </Section>
     </Layout>
@@ -258,13 +203,6 @@ export const query = graphql`
       subtitle
       image {
         ...ImageWithPreview
-      }
-    }
-    file(relativePath: { eq: "dupe_holographic-bubble_still_04.png" }) {
-      childImageSharp {
-        fluid {
-          ...GatsbyImageSharpFluid_noBase64
-        }
       }
     }
   }

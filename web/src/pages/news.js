@@ -1,15 +1,12 @@
 import * as React from 'react';
 import Layout from '../components/Layout';
-import Header from '../components/Header';
 import styled from 'styled-components';
-import data from '../data/imageGallery';
 import Card from '../components/Card';
-import { Link } from 'gatsby';
 import colours from '../styles/colours';
 
 const Main = styled.main`
   width: 100vw;
-  background-color: black;
+  background-color: ${colours.black};
   positon: absolute;
 `;
 
@@ -18,7 +15,6 @@ const Content = styled.section`
   margin: auto;
   padding-top: 15rem;
   padding-bottom: 15rem;
-
   background-color: transparent;
   z-index: 1;
 `;
@@ -38,9 +34,11 @@ const CardsContainer = styled.div`
   }
 
   visibility: hidden;
+
   > * {
     visibility: visible;
   }
+
   > * {
     transition: opacity 150ms linear 100ms, transform 150ms ease-in-out 100ms;
   }
@@ -53,11 +51,6 @@ const CardsContainer = styled.div`
     transform: scale(1);
     transition-delay: 0ms, 0ms;
   }
-`;
-
-const TitleContainer = styled.div`
-  width: 65%;
-  margin: auto;
 `;
 
 const News = ({ data }) => {

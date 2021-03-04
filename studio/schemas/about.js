@@ -9,6 +9,21 @@ export default {
       type: 'string',
     },
     {
+      name: 'bgImageOne',
+      title: 'Background Image One',
+      type: 'image',
+    },
+    {
+      name: 'bgImageTwo',
+      title: 'Background Image Two',
+      type: 'image',
+    },
+    {
+      name: 'bgImageThree',
+      title: 'Background Image Three',
+      type: 'image',
+    },
+    {
       name: 'desc',
       type: 'array',
       title: 'Description',

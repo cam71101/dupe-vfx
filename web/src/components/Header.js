@@ -1,9 +1,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
 import { Link } from 'gatsby';
 import Img from 'gatsby-image';
-import logo from '../images/dupelogo.png';
 
 const Root = styled.header`
   position: absolute;
@@ -34,38 +32,7 @@ const TextContainer = styled.div`
   z-index: 1;
   width: 7rem;
   margin-left: 3rem;
-
-  ${
-    '' /* &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    z-index: -1;
-
-    transition: transform 300ms ease-in-out;
-    transform: scaleX(0);
-    transform-origin: left;
-    background-color: white;
   }
-  &:focus {
-    color: black;
-  }
-
-  &:hover::before {
-    transform: scaleX(1);
-  }
-  &:focus::before {
-    transform: scaleX(1);
-  } */
-  }
-`;
-
-const ImgContainer = styled.div`
-  flex-grow: 3;
-  padding: 2rem;
 `;
 
 const Image = styled(Img)`
@@ -81,27 +48,11 @@ const Text = styled.span`
     text-shadow: 1px 1px 1px rgba(251, 12, 12, 1),
       0px -1px 3px rgba(12, 79, 251, 0.5), -1px 0px 2px rgba(52, 251, 12, 1);
   }
-  ${
-    '' /* 
-    opacity: 1;
-    cursor: pointer;
-    color: black;
-  }
-  &:hover {
-    opacity: 1;
-    cursor: pointer;
-    color: black;
-  } */
-  }
 `;
 
 const links = ['WORK', 'ABOUT', 'JOIN US', 'NEWS'];
 
-const Header = ({ logo, bcorpLogo }) => {
-  const StyledLink = styled(Link)`
-    ${'' /* &:focus::before */}
-  `;
-
+const Header = ({ logo }) => {
   return (
     <Root>
       <MainContainer>
@@ -109,9 +60,9 @@ const Header = ({ logo, bcorpLogo }) => {
         <Container>
           {links.map((value) => (
             <TextContainer>
-              <StyledLink to={'/' + value.replace(' ', '').toLowerCase()}>
+              <Link to={'/' + value.replace(' ', '').toLowerCase()}>
                 <Text>{value} </Text>
-              </StyledLink>
+              </Link>
             </TextContainer>
           ))}
         </Container>

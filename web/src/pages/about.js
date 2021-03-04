@@ -1,18 +1,18 @@
 import * as React from 'react';
 import Layout from '../components/Layout';
-import Header from '../components/Header';
 import styled from 'styled-components';
 import { graphql } from 'gatsby';
 import BlockContent from '@sanity/block-content-to-react';
-import Img from 'gatsby-image';
-
-import bubble from '../images/dupe_holographic-bubble_still_03.png';
+import SanityImage from 'gatsby-plugin-sanity-image';
 
 const Main = styled.main`
-  height: calc(var(--vh, 1vh) * 100);
+  height: 100vh;
+  max-width: 100vw;
   background-color: black;
   positon: absolute;
-  margin-bottom: 12rem;
+  ${'' /* margin-bottom: 12rem; */}
+  overflow: hidden;
+  position: relative;
 `;
 
 const Text = styled.div`
@@ -20,11 +20,10 @@ const Text = styled.div`
   width: 65%;
   margin: auto;
   padding-top: 15rem;
-
   display: 'flex';
-
   background-color: transparent !important;
   position: relative;
+  z-index: 3;
 `;
 
 const Info = styled.div`
@@ -43,17 +42,6 @@ const Title = styled.h1`
   margin-bottom: 4rem;
 `;
 
-const Address = styled.div``;
-
-const Image = styled(Img)`
-  position: absolute !important;
-  width: 50rem;
-  z-index: 0;
-  top: 35%;
-  bottom: 0;
-  left: 60%;
-`;
-
 const About = ({ data }) => {
   return (
     <Layout>
@@ -64,9 +52,45 @@ const About = ({ data }) => {
             <Description>
               <BlockContent blocks={data.allSanityAbout.edges[0].node.desc} />
             </Description>
-            <Image fluid={data.file.childImageSharp.fluid} />
+            {/* <Image fluid={data.allSanityAbout.edges[0].node.bgImage} /> */}
           </Info>
         </Text>
+        <SanityImage
+          {...data.allSanityAbout.edges[0].node.bgImageOne}
+          style={{
+            position: 'absolute',
+            zIndex: 1,
+            transition: 'opacity 500ms ease',
+            width: '50rem',
+            top: '-10%',
+            right: '-10%',
+          }}
+          alt={data.allSanityAbout.edges[0].node.title}
+        />
+        <SanityImage
+          {...data.allSanityAbout.edges[0].node.bgImageTwo}
+          style={{
+            position: 'absolute',
+            zIndex: 2,
+            transition: 'opacity 500ms ease',
+            width: '60rem',
+            top: '55%',
+            right: '25%',
+          }}
+          alt={data.allSanityAbout.edges[0].node.title}
+        />
+        <SanityImage
+          {...data.allSanityAbout.edges[0].node.bgImageThree}
+          style={{
+            position: 'absolute',
+            zIndex: 2,
+            transition: 'opacity 500ms ease',
+            width: '60rem',
+            top: '-30%',
+            left: '-20%',
+          }}
+          alt={data.allSanityAbout.edges[0].node.title}
+        />
       </Main>
     </Layout>
   );
@@ -78,6 +102,15 @@ export const query = graphql`
       edges {
         node {
           title
+          bgImageOne {
+            ...ImageWithPreview
+          }
+          bgImageTwo {
+            ...ImageWithPreview
+          }
+          bgImageThree {
+            ...ImageWithPreview
+          }
           desc {
             _key
             _type
@@ -85,13 +118,6 @@ export const query = graphql`
             list
             children: _rawChildren
           }
-        }
-      }
-    }
-    file(relativePath: { eq: "dupe_holographic-bubble_still_03.png" }) {
-      childImageSharp {
-        fluid {
-          ...GatsbyImageSharpFluid_noBase64
         }
       }
     }

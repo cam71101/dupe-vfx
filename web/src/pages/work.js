@@ -1,19 +1,16 @@
 import React from 'react';
 import Layout from '../components/Layout';
 import WorkCard from '../components/WorkCard';
-import { Link } from 'gatsby';
-import Img from 'gatsby-image';
 
 import styled from 'styled-components';
-
-import { Container, Row, Col } from 'styled-bootstrap-grid';
+import colours from '../styles/colours';
 
 const Main = styled.main`
   width: 100vw;
-  background-color: black;
+  background-color: ${colours.black};
 `;
 
-const Content = styled.section`
+const Section = styled.section`
   width: 65%;
   margin: auto;
   padding-top: 15rem;
@@ -22,7 +19,7 @@ const Content = styled.section`
   z-index: 1;
 `;
 
-const CardContainer = styled.div`
+const CardsContainer = styled.div`
   width: 100%;
   display: flex;
   -webkit-box-pack: justify;
@@ -36,9 +33,9 @@ const Work = ({ data }) => {
   return (
     <Layout>
       <Main>
-        <Content>
+        <Section>
           <h1>Work</h1>
-          <CardContainer>
+          <CardsContainer>
             {data.posts.nodes.map((value) => {
               let image;
               value.thumbnail
@@ -52,8 +49,8 @@ const Work = ({ data }) => {
                 />
               );
             })}
-          </CardContainer>
-        </Content>
+          </CardsContainer>
+        </Section>
       </Main>
     </Layout>
   );

@@ -3,7 +3,7 @@ import image from './objects/image';
 export default {
   title: 'Partner Logo',
   name: 'partnerLogo',
-  type: 'document',
+  type: 'file',
   fields: [
     {
       title: 'Logo Link',

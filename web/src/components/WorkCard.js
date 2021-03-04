@@ -1,12 +1,11 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import Img from 'gatsby-image';
-import Image from 'gatsby-plugin-sanity-image';
+import SanityImage from 'gatsby-plugin-sanity-image';
 import { Link } from 'gatsby';
 
 const Title = styled.h3`
   position: absolute;
-  top: 50%; 
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
@@ -50,13 +49,14 @@ const WorkCard = ({ title, image, link }) => {
   return (
     <StyledLink to={link}>
       <Title>{title}</Title>
-      <Image
+      <SanityImage
         {...image}
         width={1700}
         height={1000}
         style={{
           width: '100%',
         }}
+        alt={title}
       />
     </StyledLink>
   );

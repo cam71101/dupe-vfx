@@ -7,7 +7,6 @@ import Img from 'gatsby-image';
 import colours from '../styles/colours';
 import sizes from '../styles/sizes';
 import WorkCard from '../components/WorkCard';
-import { Link } from 'gatsby';
 import BlockContent from '@sanity/block-content-to-react';
 
 const VideoSection = styled.section`
