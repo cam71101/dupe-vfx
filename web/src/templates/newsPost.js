@@ -8,6 +8,7 @@ import { graphql } from 'gatsby';
 
 const Section = styled.section`
   max-width: 100vw;
+  min-height: 100vh;
   padding-top: 15rem;
   padding-bottom: 15rem;
 `;

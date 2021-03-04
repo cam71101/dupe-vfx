@@ -8,6 +8,7 @@ import { Link } from 'gatsby';
 import SanityImage from 'gatsby-plugin-sanity-image';
 
 import colours from '../styles/colours';
+import sizes from '../styles/sizes';
 
 const Main = styled.main`
   background-color: black;
@@ -21,7 +22,7 @@ const Section = styled.section`
 `;
 
 const Container = styled.div`
-  width: 65%;
+  width: ${sizes.containerWidth};
   margin: auto;
   color: ${colours.black};
   > div > h2 {
@@ -54,7 +55,7 @@ const TitleContainer = styled.div`
 
 const Title = styled.div`
   margin: auto;
-  width: 65%;
+  width: ${sizes.containerWidth};
 `;
 
 const JoinUs = ({ data }) => {

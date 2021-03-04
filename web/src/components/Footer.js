@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 import colours from '../styles/colours';
+import sizes from '../styles/sizes';
 
 const Root = styled.footer`
   position: absolute;
@@ -19,7 +20,7 @@ const Root = styled.footer`
 `;
 
 const Container = styled.div`
-  width: 65%;
+  width: ${sizes.containerWidth};
   margin: auto;
   display: flex;
   justify-content: space-between;

@@ -9,11 +9,14 @@ export default {
       title: 'Title',
       name: 'title',
       type: 'string',
+      validation: (Rule) => Rule.required().error('Please provide a title'),
     },
     {
       title: 'Subheading',
       name: 'subheading',
       type: 'string',
+      validation: (Rule) =>
+        Rule.required().error('Please provide a subheading'),
     },
     {
       title: 'Slug',
@@ -25,6 +28,9 @@ export default {
         slugify: (input) =>
           input.toLowerCase().replace(/\s+/g, '-').slice(0, 200),
       },
+      description: 'only letters and hyphens please eg "gangs-of-london"',
+      validation: (Rule) =>
+        Rule.required().error('Please supply a slug (click generate)'),
     },
     {
       title: 'Published date',
@@ -41,6 +47,7 @@ export default {
       options: {
         hotspot: true, // <-- Defaults to false
       },
+      validation: (Rule) => Rule.required().error('Please provide a image'),
     },
     {
       name: 'body',
@@ -54,6 +61,7 @@ export default {
           type: 'image',
         },
       ],
+      validation: (Rule) => Rule.required().error('Please provide text'),
     },
   ],
 };

@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import { Link } from 'gatsby';
 import Img from 'gatsby-image';
 
+import sizes from '../styles/sizes';
+
 const Root = styled.header`
   position: absolute;
   width: 100%;
@@ -14,7 +16,7 @@ const MainContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 65%;
+  width: ${sizes.containerWidth};
   height: 8rem;
 `;
 
