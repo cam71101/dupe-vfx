@@ -8,6 +8,7 @@ import sizes from '../styles/sizes';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlayCircle } from '@fortawesome/free-solid-svg-icons';
 import SanityImage from 'gatsby-plugin-sanity-image';
+import { graphql } from 'gatsby';
 
 const Section = styled.section`
   width: 100%;

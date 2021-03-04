@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Layout from '../components/Layout';
 import BlockContent from '@sanity/block-content-to-react';
 import colours from '../styles/colours';
+import { graphql } from 'gatsby';
 
 const Section = styled.section`
   max-width: 100vw;
@@ -16,9 +17,6 @@ const Container = styled.div`
   color: ${colours.white};
   > h1 {
     color: ${colours.offWhite};
-  }
-  > h2 {
-    padding-bottom: 5rem;
   }
 
   > div > figure {

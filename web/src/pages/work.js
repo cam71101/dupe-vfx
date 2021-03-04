@@ -4,6 +4,8 @@ import WorkCard from '../components/WorkCard';
 
 import styled from 'styled-components';
 import colours from '../styles/colours';
+import sizes from '../styles/sizes';
+import { graphql } from 'gatsby';
 
 const Main = styled.main`
   width: 100vw;
@@ -11,7 +13,7 @@ const Main = styled.main`
 `;
 
 const Section = styled.section`
-  width: 65%;
+  width: ${sizes.containerWidth};
   margin: auto;
   padding-top: 15rem;
   padding-bottom: 15rem;

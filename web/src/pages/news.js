@@ -3,6 +3,7 @@ import Layout from '../components/Layout';
 import styled from 'styled-components';
 import Card from '../components/Card';
 import colours from '../styles/colours';
+import { graphql } from 'gatsby';
 
 const Main = styled.main`
   width: 100vw;

@@ -1,12 +1,11 @@
 import * as React from 'react';
 import Layout from '../components/Layout';
-import Header from '../components/Header';
 import styled from 'styled-components';
 import { graphql } from 'gatsby';
 import BlockContent from '@sanity/block-content-to-react';
-import Img from 'gatsby-image';
 import JobCard from '../components/JobCard';
 import { Link } from 'gatsby';
+import SanityImage from 'gatsby-plugin-sanity-image';
 
 import colours from '../styles/colours';
 
@@ -39,10 +38,6 @@ const JobsContainer = styled.div`
   padding-bottom: 5rem;
 `;
 
-const Image = styled(Img)`
-  opacity: 0.6;
-`;
-
 const TitleSection = styled.section`
   position: relative;
   max-width: 100vw;
@@ -52,17 +47,14 @@ const TitleSection = styled.section`
 
 const TitleContainer = styled.div`
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 65%;
+  padding-top: 15rem;
+  top: 0;
+  width: 100%;
 `;
 
-const Title = styled.h1`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+const Title = styled.div`
+  margin: auto;
+  width: 65%;
 `;
 
 const JoinUs = ({ data }) => {
@@ -70,26 +62,36 @@ const JoinUs = ({ data }) => {
     <Layout color={'black'}>
       <Main>
         <TitleSection>
-          <Image fixed={data.allSanityJoinUs.edges[0].node.image.asset.fixed} />
+          <SanityImage
+            {...data.allSanityJoinUs.edges[0].node.image}
+            style={{
+              position: 'absolute',
+              opacity: 0.5,
+              transition: 'opacity 500ms ease',
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+            }}
+          />
           <TitleContainer>
-            <h1>{data.allSanityJoinUs.edges[0].node.title.toUpperCase()}</h1>
+            <Title>
+              <h1>{data.allSanityJoinUs.edges[0].node.title}</h1>
+            </Title>
           </TitleContainer>
         </TitleSection>
-
         <Section>
           <Container>
             <BlockContent
               blocks={data.allSanityJoinUs.nodes[0].children}
-              // imageOptions={{ w: 320, h: 240, fit: 'max' }}
-              projectId="kbmcuoo3"
-              dataset="production"
+              projectId={process.env.SANITY_PROJECT_ID}
+              dataset={process.env.SANITY_DATASET}
             />
             <JobsContainer>
               {data.allSanityJobPost.nodes.map((value) => {
                 return (
                   <Link to={value.link}>
                     <JobCard
-                      image={value.image.asset.fluid}
+                      image={value.image}
                       location={value.location}
                       title={value.title}
                     />
@@ -117,11 +119,7 @@ export const query = graphql`
             children: _rawChildren
           }
           image {
-            asset {
-              fixed(width: 3000) {
-                ...GatsbySanityImageFixed
-              }
-            }
+            ...ImageWithPreview
           }
         }
       }
@@ -132,6 +130,7 @@ export const query = graphql`
         title
         link
         image {
+          ...ImageWithPreview
           asset {
             fluid {
               ...GatsbySanityImageFluid

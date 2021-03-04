@@ -16,7 +16,7 @@ const Main = styled.main`
   position: relative;
 `;
 
-const Text = styled.div`
+const TextContainer = styled.div`
   color: ${colours.white};
   width: ${sizes.containerWidth};
   margin: auto;
@@ -25,36 +25,22 @@ const Text = styled.div`
   background-color: transparent !important;
   position: relative;
   z-index: 3;
-`;
-
-const Info = styled.div`
-  display: flex;
-  max-width: 120rem;
-`;
-
-const Description = styled.div`
-  display: flex;
-  flex-direction: column;
-  max-width: 35rem;
-  margin-right: 20rem;
-`;
-
-const Title = styled.h1`
-  margin-bottom: 4rem;
+  > div {
+    display: flex;
+    flex-direction: column;
+    max-width: 35rem;
+    margin-right: 20rem;
+  }
 `;
 
 const About = ({ data }) => {
   return (
     <Layout>
       <Main>
-        <Text>
-          <Title>{data.allSanityAbout.edges[0].node.title}</Title>
-          <Info>
-            <Description>
-              <BlockContent blocks={data.allSanityAbout.edges[0].node.desc} />
-            </Description>
-          </Info>
-        </Text>
+        <TextContainer>
+          <h1>{data.allSanityAbout.edges[0].node.title}</h1>
+          <BlockContent blocks={data.allSanityAbout.edges[0].node.desc} />
+        </TextContainer>
         <Img
           fluid={data.allSanityAbout.edges[0].node.bgImageOne.asset.fluid}
           style={{

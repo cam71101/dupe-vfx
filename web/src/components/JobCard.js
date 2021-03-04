@@ -1,9 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Img from 'gatsby-image';
-import { Link } from 'gatsby';
-
-import colours from '../styles/colours';
+import SanityImage from 'gatsby-plugin-sanity-image';
 
 const Container = styled.div`
   max-width: 50rem;
@@ -25,10 +23,6 @@ const ImageContainer = styled.div`
   overflow: hidden;
 `;
 
-const Image = styled(Img)`
-  height: 100%;
-`;
-
 const TextContainer = styled.div`
   width: 100%;
   display: flex;
@@ -45,7 +39,6 @@ const TextContainer = styled.div`
   }
   & > h6 {
     margin: 0;
-    padding: r ${'' /* color: black; */};
   }
 `;
 
@@ -53,7 +46,7 @@ const JobCard = ({ location, title, image }) => {
   return (
     <Container>
       <ImageContainer>
-        <Image fluid={image} />
+        <SanityImage {...image} style={{ height: '100%' }} />
       </ImageContainer>
       <TextContainer>
         <h5>{title}</h5>

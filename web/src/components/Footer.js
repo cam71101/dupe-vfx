@@ -1,6 +1,5 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
 import { Link } from 'gatsby';
 import Img from 'gatsby-image';
 import { faInstagram, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
@@ -50,7 +49,7 @@ const Footer = ({ logo, color }) => {
   let bgColor = colours.offWhite;
   let fgColor = colours.black;
 
-  if (color == 'black') {
+  if (color === 'black') {
     bgColor = colours.black;
     fgColor = colours.offWhite;
   }
