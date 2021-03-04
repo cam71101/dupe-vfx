@@ -76,7 +76,7 @@ const FeaturedWorkContainer = styled(Container)`
   padding-top: 10rem;
   padding-bottom: 20rem;
 
-  > h1 {
+  > div > h1 {
     color: ${colours.black};
     margin-bottom: 5rem;
   }
@@ -171,7 +171,12 @@ const IndexPage = ({ data }) => {
         </LogoContainer>
       </VideoSection>
 
-      <DescriptionSection>
+      <DescriptionSection
+        data-sal="fade"
+        data-sal-delay="300"
+        data-sal-easing="ease"
+        data-sal-duration="800"
+      >
         <DescriptionContainer>
           <BlockContent
             blocks={data.allSanityHome.nodes[0].children}
@@ -182,22 +187,29 @@ const IndexPage = ({ data }) => {
       </DescriptionSection>
       <FeaturedWorkSection>
         <FeaturedWorkContainer>
-          <h1>Featured Work</h1>
-          <WorkCardsContainer>
-            {data.posts.nodes.map((value) => {
-              let image = value.image;
-              if (value.thumbnail) {
-                image = value.thumbnail;
-              }
-              return (
-                <WorkCard
-                  title={value.title}
-                  image={image}
-                  link={'work/' + value.slug.current}
-                />
-              );
-            })}
-          </WorkCardsContainer>
+          <div
+            data-sal="fade"
+            data-sal-delay="300"
+            data-sal-easing="ease"
+            data-sal-duration="800"
+          >
+            <h1>Featured Work</h1>
+            <WorkCardsContainer>
+              {data.posts.nodes.map((value) => {
+                let image = value.image;
+                if (value.thumbnail) {
+                  image = value.thumbnail;
+                }
+                return (
+                  <WorkCard
+                    title={value.title}
+                    image={image}
+                    link={'work/' + value.slug.current}
+                  />
+                );
+              })}
+            </WorkCardsContainer>
+          </div>
         </FeaturedWorkContainer>
       </FeaturedWorkSection>
       <BcorpSection>
@@ -205,7 +217,13 @@ const IndexPage = ({ data }) => {
           videoSrcURL="https://player.vimeo.com/video/363119176?app_id=122963?&autoplay=1&loop=1&title=0&byline=0&portrait=0&muted=1&background=1"
           videoTitle="Bubble"
         />
-        <BcorpContainer>
+
+        <BcorpContainer
+          data-sal="fade"
+          data-sal-delay="300"
+          data-sal-easing="ease"
+          data-sal-duration="800"
+        >
           <BcorpLogoContainer>
             <BcorpLogo
               fluid={data.allSanityHome.edges[0].node.bcorpLogo.asset.fluid}

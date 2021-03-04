@@ -25,13 +25,14 @@ body {
 h2, h3, h4, h5, h6, p {
   color: inherit;
 }
- h1 {
+h1 {
     margin: 0;
-    font-size: 200px; 
+    font-size: 150px; 
     font-weight: 600;
     color: ${colors.offWhite};
     margin-bottom: 1.5rem;
-  }
+    font-family: 'Stanley Regular';
+}
   h2 {
     margin: 0;
     font-size: 5.2rem;

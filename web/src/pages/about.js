@@ -28,7 +28,7 @@ const TextContainer = styled.div`
   > div {
     display: flex;
     flex-direction: column;
-    max-width: 35rem;
+    max-width: 30%;
     margin-right: 20rem;
   }
 `;

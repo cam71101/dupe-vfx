@@ -7,3 +7,8 @@
   font-family: 'Euclid Light';
   src: url('../fonts/EuclidSquare-Light.otf');
 }
+
+@font-face {
+  font-family: 'Stanley Regular';
+  src: url('../fonts/Stanley/Stanley Regular.otf');
+}
