@@ -16,9 +16,9 @@ export default {
         sites: [
           {
             title: 'Dupe VFX',
-            apiId: 'aa877717-c63d-44ab-9ee9-32736c14ba1c',
-            buildHookId: '603f68f590141f1198f56cff',
-            name: 'admiring-shockley-1c52e7',
+            apiId: '807bedb5-e8d4-4391-8f4c-4e3e57baa183',
+            buildHookId: '60425f14fb04af1b6178b4b2',
+            name: 'dupe-vfx',
           },
         ],
       },
