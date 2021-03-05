@@ -15,7 +15,7 @@ const Main = styled.main`
 const Section = styled.section`
   width: ${sizes.containerWidth};
   margin: auto;
-  padding-top: 15rem;
+  padding-top: ${sizes.paddingTop};
   padding-bottom: 15rem;
   background-color: transparent;
   z-index: 1;

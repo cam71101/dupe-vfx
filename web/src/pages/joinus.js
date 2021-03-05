@@ -48,7 +48,7 @@ const TitleSection = styled.section`
 
 const TitleContainer = styled.div`
   position: absolute;
-  padding-top: 15rem;
+  padding-top: ${sizes.paddingTop};
   top: 0;
   width: 100%;
 `;
@@ -100,6 +100,25 @@ const JoinUs = ({ data }) => {
                 );
               })}
             </JobsContainer>
+            <div id="BambooHR">
+              <script
+                src="https://dupevfx.bamboohr.com/js/jobs2.php"
+                type="text/javascript"
+              ></script>
+              <div id="BambooHR-Footer">
+                Powered by
+                <a
+                  href="http://www.bamboohr.com/"
+                  target="_blank"
+                  rel="noopener external nofollow noreferrer"
+                >
+                  <img
+                    src="https://resources.bamboohr.com/images/footer-logo.png"
+                    alt="BambooHR - HR software"
+                  />
+                </a>
+              </div>
+            </div>
           </Container>
         </Section>
       </Main>

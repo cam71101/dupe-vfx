@@ -28,7 +28,7 @@ h2, h3, h4, h5, h6, p {
 h1 {
     margin: 0;
     font-size: 150px; 
-    font-weight: 600;
+    font-weight: 400;
     color: ${colors.offWhite};
     margin-bottom: 1.5rem;
     font-family: 'Stanley Regular';
@@ -64,7 +64,7 @@ h1 {
   }
   p {
     margin-bottom: 1rem;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     line-height: 2.1rem;
   }
   li {

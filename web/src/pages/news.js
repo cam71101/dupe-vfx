@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Card from '../components/Card';
 import colours from '../styles/colours';
 import { graphql } from 'gatsby';
-
+import sizes from '../styles/sizes';
 const Main = styled.main`
   width: 100vw;
   background-color: ${colours.black};
@@ -14,7 +14,7 @@ const Main = styled.main`
 const Content = styled.section`
   width: 65%;
   margin: auto;
-  padding-top: 15rem;
+  padding-top: ${sizes.paddingTop};
   padding-bottom: 15rem;
   background-color: transparent;
   z-index: 1;

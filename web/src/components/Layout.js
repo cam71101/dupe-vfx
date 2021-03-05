@@ -75,9 +75,9 @@ const Layout = (props) => {
               style={{
                 position: 'fixed',
                 right: '2%',
-                bottom: 0,
+                top: '20%',
                 transform: 'translateX(-50%)',
-                opacity: isHide,
+                // opacity: isHide,
               }}
               imgStyle={{ filter: 'invert(100%)' }}
             />

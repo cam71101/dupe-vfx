@@ -9,6 +9,11 @@ export default {
       type: 'string',
     },
     {
+      title: 'Second Title',
+      name: 'secondTitle',
+      type: 'string',
+    },
+    {
       name: 'bgImageOne',
       title: 'Background Image One',
       type: 'image',
