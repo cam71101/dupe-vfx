@@ -39,3 +39,17 @@ a {
 
 .index-description > * {
 }
+
+.test {
+  font-size: 12rem;
+  color: white;
+  margin: 10px;
+  -webkit-transition: all 1.5s ease;
+  transition: all 1.5s ease;
+  animation-fill-mode: forwards;
+  -webkit-transition: all 1.5s ease;
+  transition: all 1.5s ease;
+  animation-fill-mode: forwards;
+  transform: rotate(0deg);
+  animation-direction: alternate;
+}

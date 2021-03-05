@@ -144,14 +144,84 @@ const BcorpLogo = styled(Img)`
   filter: invert(100%);
 `;
 
+const LettersContainer = styled.div`
+  width: 30rem;
+  position: relative;
+  -webkit-transition: all 1.5s ease;
+  transition: all 1.5s ease;
+  animation-fill-mode: forwards;
+`;
+
+const LetterContainer = styled.div`
+  width: 25rem;
+  position: absolute;
+  -webkit-transition: all 1.5s ease;
+  transition: all 1.5s;
+  animation-fill-mode: forwards;
+`;
+
+const UContainer = styled(LetterContainer)`
+  left: 120px;
+`;
+const PContainer = styled(LetterContainer)`
+  left: 240px;
+`;
+
+const EContainer = styled(LetterContainer)`
+  left: 360px;
+`;
+
+const Letter = styled.h2`
+  font-size: 12rem;
+  color: ${colours.offWhite};
+  margin: 10px;
+  -webkit-transition: all 1.5s ease;
+  transition: all 1.5s ease;
+  animation-fill-mode: forwards;
+  transform: translate(0px, 0px) rotate(0deg);
+`;
+
+const D = styled(Letter)`
+  ${'' /* transform: translate(263px, 39px) rotate(180deg); */}
+  -webkit-transition: all 1.5s ease;
+  transition: all 1.5s ease;
+  animation-fill-mode: forwards;
+  transform: translate(0px, 0px) rotate(0deg);
+  ${'' /* transform: translate(263px, 39px) rotate(180deg); */}
+`;
+
 const IndexPage = ({ data }) => {
   const [isLoading, setIsLoading] = React.useState(true);
+  const [isRotating, setIsRotating] = React.useState(0);
+
+  React.useEffect(() => {
+    window.addEventListener('scroll', hideBar);
+  }, []);
+
+  const hideBar = () => {
+    console.log(window.scrollY);
+    if (window.scrollY > 300) {
+      // setIsRotating(
+      //   `translate(${window.scrollY - 300}px) rotate(${
+      //     window.scrollY - 300
+      //   }deg)`
+      // );
+      setIsRotating(`rotate(180deg)`);
+    } else {
+      setIsRotating(`translate(0px, 0px) rotate(0deg)`);
+    }
+    // window.scrollY > 300
+    //   ? setIsRotating(`rotate(-${window.scrollY - 300}deg)`)
+    //   : setIsRotating('rotate(0deg)');
+  };
 
   const handleLoad = () => {
     setTimeout(() => {
       setIsLoading(false);
     }, 500);
   };
+
+  let rotate;
 
   return (
     <Layout color={'black'} logo>
@@ -167,7 +237,21 @@ const IndexPage = ({ data }) => {
             <DupeLogo
               fluid={data.allSanityHome.edges[0].node.dupeLogo.asset.fluid}
             />
-          ) : null}
+          ) : /* <LettersContainer>
+              <LetterContainer style={{ transform: isRotating }}>
+                <D>d</D>
+              </LetterContainer> */
+          /* <UContainer>
+                <Letter>u</Letter>
+              </UContainer>
+              <PContainer>
+                <Letter>p</Letter>
+              </PContainer>
+              <EContainer>
+                <Letter>e</Letter>
+              </EContainer> */
+          /* </LettersContainer> */
+          null}
         </LogoContainer>
       </VideoSection>
 

@@ -1,7 +1,8 @@
 {
   "root": true,
   "project": {
-    "name": "studio"
+    "name": "Dupe VFX",
+    "basePAth": "studio"
   },
   "api": {
     "projectId": "kbmcuoo3",
