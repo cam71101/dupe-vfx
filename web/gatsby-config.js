@@ -4,14 +4,23 @@ const {
   api: { projectId, dataset },
 } = requireConfig('../studio/sanity.json');
 
+const {
+  NODE_ENV,
+  URL: NETLIFY_SITE_URL = 'https://http://dupevfx.com/',
+  DEPLOY_PRIME_URL: NETLIFY_DEPLOY_URL = NETLIFY_SITE_URL,
+  CONTEXT: NETLIFY_ENV = NODE_ENV,
+} = process.env;
+
+const isNetlifyProduction = NETLIFY_ENV === 'production';
+const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL;
+
 module.exports = {
   siteMetadata: {
     title: 'Dupe VFX | The world’s first visual effects B Corporation',
     titleTemplate: '%s · Dupe VFX',
     description:
       "Amazing visual effects for film and television from the world's first VFX B corp. Headquartered in London, Dupe vfx specialises in concept & design, onset supervision, CG,  FX and animation, matte painting, compositing and AR virtual production.",
-    url: 'http://dupevfx.com', // No trailing slash allowed!
-    siteUrl: 'http://dupevfx.com',
+    siteUrl: siteUrl,
     image: '/images/dupe-vfx-website-logo.png', // Path to your image you placed in the 'static' folder
     twitterUsername: '@dupevfx',
   },
@@ -97,6 +106,27 @@ module.exports = {
             },
           },
         ],
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        resolveEnv: () => NETLIFY_ENV,
+        env: {
+          production: {
+            policy: [{ userAgent: '*' }],
+          },
+          'branch-deploy': {
+            policy: [{ userAgent: '*', disallow: ['/'] }],
+            sitemap: null,
+            host: null,
+          },
+          'deploy-preview': {
+            policy: [{ userAgent: '*', disallow: ['/'] }],
+            sitemap: null,
+            host: null,
+          },
+        },
       },
     },
     'gatsby-remark-responsive-iframe',

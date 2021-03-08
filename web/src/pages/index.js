@@ -204,24 +204,24 @@ const Test = styled.div`
 
 const IndexPage = ({ data }) => {
   const [isLoading, setIsLoading] = React.useState(true);
-  const [isRotating, setIsRotating] = React.useState(0);
+  // const [isRotating, setIsRotating] = React.useState(0);
 
-  React.useEffect(() => {
-    window.addEventListener('scroll', hideBar);
-  }, []);
+  // React.useEffect(() => {
+  //   window.addEventListener('scroll', hideBar);
+  // }, []);
 
   const hideBar = () => {
-    console.log(window.scrollY);
-    if (window.scrollY > 300) {
-      // setIsRotating(
-      //   `translate(${window.scrollY - 300}px) rotate(${
-      //     window.scrollY - 300
-      //   }deg)`
-      // );
-      setIsRotating(`rotate(180deg)`);
-    } else {
-      setIsRotating(`translate(0px, 0px) rotate(0deg)`);
-    }
+    // console.log(window.scrollY);
+    // if (window.scrollY > 300) {
+    // setIsRotating(
+    //   `translate(${window.scrollY - 300}px) rotate(${
+    //     window.scrollY - 300
+    //   }deg)`
+    // );
+    //   setIsRotating(`rotate(180deg)`);
+    // } else {
+    //   setIsRotating(`translate(0px, 0px) rotate(0deg)`);
+    // }
     // window.scrollY > 300
     //   ? setIsRotating(`rotate(-${window.scrollY - 300}deg)`)
     //   : setIsRotating('rotate(0deg)');
