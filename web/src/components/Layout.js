@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import './Layout.css';
 import { StaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
+import Seo from '../components/SEO';
 
 const Main = styled.main`
   min-height: 100vh;
@@ -69,6 +70,11 @@ const Layout = (props) => {
       render={(data) => {
         return (
           <Main>
+            <Seo
+              article={props.article}
+              title={props.title}
+              description={props.description}
+            />
             <GlobalStyle />
             <Image
               fluid={data.bcorpLogo.childImageSharp.fluid}

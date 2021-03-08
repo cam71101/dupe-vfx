@@ -1,14 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
-
-import Layout from '../components/Layout';
 import BlockContent from '@sanity/block-content-to-react';
-import colours from '../styles/colours';
-import sizes from '../styles/sizes';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlayCircle } from '@fortawesome/free-solid-svg-icons';
 import SanityImage from 'gatsby-plugin-sanity-image';
 import { graphql } from 'gatsby';
+
+import Layout from '../components/Layout';
+import colours from '../styles/colours';
+import sizes from '../styles/sizes';
 
 const Section = styled.section`
   width: 100%;
@@ -63,6 +63,13 @@ const BodyContainer = styled.div`
   > div > h3 {
     color: ${colours.offWhite};
   }
+  > div > figure {
+    display: flex;
+    justify-content: center;
+  }
+  > div > figure > img {
+    max-width: 100%;
+  }
   margin-bottom: 7rem;
 `;
 
@@ -112,7 +119,7 @@ const WorkPost = ({ data }) => {
   }
 
   return (
-    <Layout>
+    <Layout article title={data.post.title} description={data.post.subtitle}>
       <HeaderSection>
         {data.post.showReel ? (
           <VideoContainer>
@@ -122,7 +129,7 @@ const WorkPost = ({ data }) => {
                 transition: 'opacity 500ms ease',
               }}
               src={data.post.showReel}
-              title={'test'}
+              title={data.post.title}
               allow="autoplay; fullscreen"
               frameBorder="0"
               width="1920"

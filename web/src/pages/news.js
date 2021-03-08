@@ -1,10 +1,12 @@
 import * as React from 'react';
-import Layout from '../components/Layout';
 import styled from 'styled-components';
-import Card from '../components/Card';
-import colours from '../styles/colours';
 import { graphql } from 'gatsby';
+
+import Layout from '../components/Layout';
+import Card from '../components/NewsCard';
 import sizes from '../styles/sizes';
+import colours from '../styles/colours';
+
 const Main = styled.main`
   width: 100vw;
   background-color: ${colours.black};
@@ -92,11 +94,6 @@ export const query = graphql`
         date
         image {
           ...ImageWithPreview
-          asset {
-            fluid(maxWidth: 1000) {
-              ...GatsbySanityImageFluid
-            }
-          }
         }
       }
     }

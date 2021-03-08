@@ -9,6 +9,7 @@ const GlobalStyle = createGlobalStyle`
 html {
     font-size: 15.5px;
      box-sizing: border-box;
+     scroll-behavior: smooth;
   }
 
 *, *:before, *:after {
@@ -16,7 +17,7 @@ html {
 }
 body {
   margin: 0;
-  font-family: 'Euclid Regular';
+  font-family: 'Euclid Regular', "Helvetica", "Arial", sans-serif;
   list-style-type: none;
   background-color: black;
   box-sizing: border-box;
@@ -25,6 +26,7 @@ body {
 h2, h3, h4, h5, h6, p {
   color: inherit;
 }
+
 h1 {
     margin: 0;
     font-size: 150px; 
@@ -33,18 +35,25 @@ h1 {
     margin-bottom: 1.5rem;
     font-family: 'Stanley Regular';
 }
+
   h2 {
     margin: 0;
-    font-size: 5.2rem;
+    font-size: 2.3rem;
     font-weight: 600;
     font-family: 'Euclid Light';
     margin-bottom: 2rem;
     margin-top: 2rem;
+    text-transform: uppercase;
+    color: ${colors.offWhite};
+    
   }
+
+
+
   h3 {
     margin-bottom: 1rem;
     font-size: 2.1rem;
-    font-family: 'Euclid Light';
+    font-family: 'Stanley Regular';
     font-weight: 100;
     line-height: 3rem;
     letter-spacing: .1rem

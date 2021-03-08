@@ -18,7 +18,7 @@ const StyledLink = styled(Link)`
   }
 `;
 
-const Dummy = styled(SanityImage)`
+const Image = styled(SanityImage)`
   position: absolute; /
   top: 0;
   bottom: 0;
@@ -41,21 +41,16 @@ const TextContainer = styled.div`
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
   padding-left: 1.5rem;
-  & > h5 {
-    margin: 0;
-  }
-  & > h4 {
-    margin: 0;
-    padding: 0;
-  }
   background-color: inherit;
+  > h3 {
+    font-family: 'Euclid Regular';
+  }
 `;
 
-const Card = ({ date, title, image, link }) => {
+const NewsCard = ({ date, title, image, link }) => {
   return (
     <StyledLink to={link}>
-      <Dummy {...image} style={{ width: '100%', objectPosition: 'center' }} />
-
+      <Image {...image} style={{ width: '100%', objectPosition: 'center' }} />
       <TextContainer>
         <h6>{date}</h6>
         <h5>{title}</h5>
@@ -64,4 +59,4 @@ const Card = ({ date, title, image, link }) => {
   );
 };
 
-export default Card;
+export default NewsCard;

@@ -6,13 +6,21 @@ const {
 
 module.exports = {
   siteMetadata: {
-    title: 'DupeVFX',
+    title: 'Dupe VFX | The world’s first visual effects B Corporation',
+    titleTemplate: '%s · Dupe VFX',
+    description:
+      "Amazing visual effects for film and television from the world's first VFX B corp. Headquartered in London, Dupe vfx specialises in concept & design, onset supervision, CG,  FX and animation, matte painting, compositing and AR virtual production.",
+    url: 'http://dupevfx.com', // No trailing slash allowed!
+    siteUrl: 'http://dupevfx.com',
+    image: '/images/dupe-vfx-website-logo.png', // Path to your image you placed in the 'static' folder
+    twitterUsername: '@dupevfx',
   },
   plugins: [
     'gatsby-plugin-styled-components',
     'gatsby-plugin-sharp',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-offline',
+    `gatsby-plugin-advanced-sitemap`,
     {
       resolve: `gatsby-plugin-scroll-reveal`,
       options: {

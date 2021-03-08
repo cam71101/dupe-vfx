@@ -8,6 +8,7 @@ import colours from '../styles/colours';
 import sizes from '../styles/sizes';
 import WorkCard from '../components/WorkCard';
 import BlockContent from '@sanity/block-content-to-react';
+import Scrollbar from 'smooth-scrollbar-react';
 
 const VideoSection = styled.section`
   position: absolute;
@@ -53,9 +54,9 @@ const DescriptionSection = styled(Section)`
 const DescriptionContainer = styled(Container)`
   padding-top: 6rem;
   padding-bottom: 6rem;
-  > * > h3 {
-    color: ${colours.offWhite};
-  }
+
+  color: ${colours.offWhite};
+
   > * > h1 {
     color: ${colours.offWhite};
     margin-bottom: 5rem;
@@ -125,8 +126,8 @@ const StudiosContainer = styled(Container)`
   margin: auto;
   display: flex;
   flex-wrap: wrap;
-  padding-top: 8rem;
-  padding-bottom: 8rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 `;
 
 const StudiosImage = styled(Img)`
@@ -188,6 +189,17 @@ const D = styled(Letter)`
   animation-fill-mode: forwards;
   transform: translate(0px, 0px) rotate(0deg);
   ${'' /* transform: translate(263px, 39px) rotate(180deg); */}
+`;
+
+const Test = styled.div`
+  width: 700px;
+  height: 420px;
+  overflow: hidden;
+  position: relative;
+  margin: 400px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const IndexPage = ({ data }) => {
@@ -255,18 +267,32 @@ const IndexPage = ({ data }) => {
         </LogoContainer>
       </VideoSection>
 
-      <DescriptionSection
-        data-sal="fade"
-        data-sal-delay="300"
-        data-sal-easing="ease"
-        data-sal-duration="800"
-      >
+      <DescriptionSection>
         <DescriptionContainer>
-          <BlockContent
+          {/* <BlockContent
             blocks={data.allSanityHome.nodes[0].children}
             projectId="kbmcuoo3"
             dataset="production"
-          />
+          /> */}
+          <h1
+            data-sal="fade"
+            data-sal-delay="300"
+            data-sal-easing="ease"
+            data-sal-duration="800"
+          >
+            We're Dupe.
+          </h1>
+          <h3
+            data-sal="fade"
+            data-sal-delay="600"
+            data-sal-easing="ease"
+            data-sal-duration="800"
+          >
+            We carefully balance our talent and professionalism with an
+            approachable, can-do attitude. Crafting stunning visual effects for
+            film and television. And we make sure our staff have a healthy
+            work-life balance too.
+          </h3>
         </DescriptionContainer>
       </DescriptionSection>
       <FeaturedWorkSection>
@@ -278,6 +304,14 @@ const IndexPage = ({ data }) => {
             data-sal-duration="800"
           >
             <h1>Featured Work</h1>
+          </div>
+
+          <div
+            data-sal="fade"
+            data-sal-delay="500"
+            data-sal-easing="ease"
+            data-sal-duration="800"
+          >
             <WorkCardsContainer>
               {data.posts.nodes.map((value) => {
                 let image = value.image;
@@ -328,7 +362,7 @@ const IndexPage = ({ data }) => {
             return (
               <StudiosImage
                 fluid={value.logoImage.asset.fluid}
-                style={{ width: '15rem', margin: 'auto' }}
+                style={{ width: '12rem', margin: 'auto' }}
                 imgStyle={{ width: '100%', height: 'auto' }}
               />
             );

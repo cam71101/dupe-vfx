@@ -2,13 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 import SanityImage from 'gatsby-plugin-sanity-image';
 import { Link } from 'gatsby';
+import colours from '../styles/colours';
 
-const Title = styled.h3`
+const Title = styled.h2`
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: white;
+  color: ${colours.white};
   opacity: 0;
   z-index: 2;
 `;
@@ -25,6 +26,7 @@ const StyledLink = styled(Link)`
     content: '';
     position: absolute;
     top: 0;
+
     left: 0;
     bottom: 0;
     right: 0;
@@ -39,7 +41,7 @@ const StyledLink = styled(Link)`
   }
 
   &:hover {
-    & > h3 {
+    & > h2 {
       opacity: 1;
     }
   }

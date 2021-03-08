@@ -23,10 +23,17 @@ const Container = styled.div`
   > div > figure {
     margin: 0;
     margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   > div > figure > img {
     max-width: 100%;
+  }
+
+  > div > * {
+    font-family: 'Euclid Regular';
   }
 `;
 
@@ -68,7 +75,7 @@ const NewsPost = ({ data }) => {
   const date = day + nth(day) + ' ' + month + ' ' + year;
 
   return (
-    <Layout>
+    <Layout article title={data.post.title} description={data.post.subheading}>
       <Section>
         <Container>
           <h4>{date}</h4>
@@ -76,7 +83,6 @@ const NewsPost = ({ data }) => {
           <h2>{data.post.subheading}</h2>
           <BlockContent
             blocks={data.post.children}
-            // imageOptions={{ w: 320, h: 240, fit: 'max' }}
             projectId="kbmcuoo3"
             dataset="production"
           />
