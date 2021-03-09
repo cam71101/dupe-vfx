@@ -20,20 +20,31 @@ const Root = styled.footer`
 `;
 
 const Container = styled.div`
-  width: ${sizes.containerWidth};
+  width: 95%;
   margin: auto;
   display: flex;
-  justify-content: space-between;
+
   align-items: center;
-  padding: 5rem;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  @media ${({ theme }) => theme.laptop} {
+    width: ${sizes.containerWidth};
+  }
+`;
+
+const ImgContainer = styled.div`
+  flex: 1;
 `;
 
 const Image = styled(Img)`
   width: 10rem;
-  margin: 1rem;
 `;
 
 const Social = styled.div`
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   > * {
     margin: 1rem;
     width: 3rem;
@@ -41,8 +52,13 @@ const Social = styled.div`
 `;
 
 const Contact = styled.div`
+  flex: 1;
+  ${'' /* display: flex;
+  align-content: flex-end;
+  flex-direction: column; */}
   > h6 {
     color: black;
+    text-align: end;
   }
 `;
 
@@ -58,7 +74,9 @@ const Footer = ({ logo, color }) => {
   return (
     <Root style={{ backgroundColor: bgColor }}>
       <Container>
-        <Image fluid={logo} />
+        <ImgContainer>
+          <Image fluid={logo} />
+        </ImgContainer>
         <Social>
           <Link to="https://www.instagram.com/dupevfx/">
             <FontAwesomeIcon icon={faInstagram} color={fgColor} size="lg" />

@@ -15,7 +15,7 @@ const Title = styled.h2`
 `;
 
 const StyledLink = styled(Link)`
-  width: 49.01961%;
+  width: 100%;
   position: relative;
   margin-bottom: 60px;
   :hover {
@@ -44,6 +44,9 @@ const StyledLink = styled(Link)`
     & > h2 {
       opacity: 1;
     }
+  }
+  @media ${({ theme }) => theme.laptop} {
+    width: 49.01961%;
   }
 `;
 

@@ -30,12 +30,18 @@ h2, h3, h4, h5, h6, p {
 
 h1 {
     margin: 0;
-    font-size: 110px; 
+    font-size: 60px; 
     font-weight: 400;
     color: ${colors.offWhite};
     margin-bottom: 1.5rem;
     font-family: 'Stanley Regular';
-    @media ${breakpoints.laptopL} {
+    @media ${breakpoints.tablet} {
+      font-size: 100px;  
+    }
+    @media ${breakpoints.laptop} {
+      font-size: 110px;  
+    }
+     @media ${breakpoints.laptopL} {
       font-size: 150px;  
     }
 }
@@ -49,6 +55,7 @@ h1 {
     margin-top: 2rem;
     text-transform: uppercase;
     color: ${colors.offWhite};
+    
     @media ${breakpoints.laptopL} {
      font-size: 2.3rem; 
     }
@@ -57,16 +64,43 @@ h1 {
 
 
   h3 {
-    margin-bottom: 1rem;
-    font-size: 1.6rem;
+    margin-bottom: .5rem;
+    font-size: .4rem;
     font-family: 'Stanley Regular';
     font-weight: 100;
-    line-height: 2.5rem;
-    letter-spacing: .05rem;
+    line-height: .7rem;
+    letter-spacing: .01rem;
+
+
+    @media ${breakpoints.mobileM} {
+      font-size: .5rem;
+      line-height: .7rem;
+      letter-spacing: .02rem;
+    } 
+    
+    @media ${breakpoints.mobileL} {
+      font-size: .7rem;
+      letter-spacing: .03rem;
+      line-height: 1.2rem;
+    }
+
+    @media ${breakpoints.tablet} {
+      font-size: 1.2rem;
+      line-height: 1.8rem;
+      letter-spacing: .02rem;
+
+    }
+
+    @media ${breakpoints.laptop} {
+     font-size: 1.3rem;
+     line-height: 2rem;
+    letter-spacing: .08rem;
+    }
+    
     @media ${breakpoints.laptopL} {
-     font-size: 2.1rem;
+     font-size: 2rem;
      line-height: 3rem;
-    letter-spacing: .1rem;
+     letter-spacing: .15rem;
     }
   }
   h4 {

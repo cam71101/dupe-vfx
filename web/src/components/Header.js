@@ -2,8 +2,9 @@ import * as React from 'react';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
 import Img from 'gatsby-image';
-
 import sizes from '../styles/sizes';
+import Menu from './Menu/Menu';
+import Burger from './Burger/Burger';
 
 const Root = styled.header`
   position: absolute;
@@ -22,6 +23,12 @@ const MainContainer = styled.div`
 
 const Container = styled.div`
   display: flex;
+  visibility: hidden;
+  width: 100%;
+  justify-content: flex-end;
+  @media ${({ theme }) => theme.tablet} {
+    visibility: visible;
+  }
 `;
 
 const TextContainer = styled.div`
@@ -54,11 +61,15 @@ const Text = styled.span`
 
 const links = ['WORK', 'ABOUT', 'JOIN US', 'NEWS'];
 
-const Header = ({ logo }) => {
+const Header = ({ logo, open, setOpen }) => {
   return (
     <Root>
       <MainContainer>
         <Link to="/">{logo ? <Image fluid={logo} /> : <Image />}</Link>
+        <div>
+          <Burger open={open} setOpen={setOpen} />
+          <Menu open={open} setOpen={setOpen} />
+        </div>
         <Container>
           {links.map((value) => (
             <TextContainer>

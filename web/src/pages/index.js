@@ -60,8 +60,11 @@ const Section = styled.section`
 `;
 
 const Container = styled.div`
-  width: ${sizes.containerWidth};
+  width: 95%;
   margin: auto;
+  @media ${({ theme }) => theme.laptop} {
+    width: ${sizes.containerWidth};
+  }
 `;
 
 const DescriptionSection = styled(Section)`
@@ -108,6 +111,10 @@ const WorkCardsContainer = styled.div`
   flex-wrap: wrap;
   -webkit-box-align: start;
   align-items: flex-start;
+  flex-direction: column;
+  @media ${({ theme }) => theme.laptop} {
+    flex-direction: row;
+  }
 `;
 
 const BcorpSection = styled(Section)`
@@ -121,7 +128,10 @@ const BcorpSection = styled(Section)`
 `;
 
 const BcorpLogoContainer = styled.div`
-  width: 120rem;
+  width: 60rem;
+  @media ${({ theme }) => theme.laptop} {
+    width: 120rem;
+  }
 `;
 
 const BcorpContainer = styled(Container)`
@@ -136,7 +146,10 @@ const BcorpContainer = styled(Container)`
   justify-content: center;
   align-items: center;
   > * > h3 {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
+    @media ${({ theme }) => theme.laptop} {
+      margin-bottom: 2rem;
+    }
   }
   color: ${colours.white};
 `;
@@ -154,8 +167,15 @@ const StudiosContainer = styled(Container)`
 `;
 
 const StudiosImage = styled(Img)`
-  width: 4rem;
+  width: 2rem;
   margin: auto;
+  @media ${breakpoints.mobileM} {
+    width: 3rem;
+  }
+
+  @media ${breakpoints.tablet} {
+    width: 4rem;
+  }
 
   @media ${breakpoints.laptop} {
     width: 6rem;
@@ -170,11 +190,13 @@ const DupeLogo = styled(Img)`
   min-width: 10rem;
   width: 10rem;
   margin: auto;
+
   @media ${breakpoints.tablet} {
     width: 20rem;
   }
   @media ${breakpoints.laptopL} {
     width: 30rem;
+    }
   }
 `;
 
@@ -386,12 +408,13 @@ const IndexPage = ({ data }) => {
           data-sal-easing="ease"
           data-sal-duration="800"
         >
-          <BcorpLogoContainer>
-            <BcorpLogo
-              fluid={data.allSanityHome.edges[0].node.bcorpLogo.asset.fluid}
-              alt="logo"
-            />
-          </BcorpLogoContainer>
+          {/* <BcorpLogoContainer> */}
+          <BcorpLogo
+            fluid={data.allSanityHome.edges[0].node.bcorpLogo.asset.fluid}
+            alt="logo"
+            style={{}}
+          />
+          {/* </BcorpLogoContainer> */}
 
           <BlockContent
             blocks={data.allSanityHome.nodes[0]._rawBcorpText}
