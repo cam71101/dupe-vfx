@@ -8,10 +8,11 @@ import colours from '../styles/colours';
 import sizes from '../styles/sizes';
 import WorkCard from '../components/WorkCard';
 import BlockContent from '@sanity/block-content-to-react';
-import Scrollbar from 'smooth-scrollbar-react';
+import breakpoints from '../styles/breakpoints';
 
 const VideoSection = styled.section`
-  position: absolute;
+  ${
+    '' /* position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
@@ -21,11 +22,18 @@ const VideoSection = styled.section`
   display: flex;
   -webkit-align-items: center;
   -ms-flex-align: center;
-  align-items: center;
+  align-items: center; */
+  }
+  height: 0;
+  position: relative;
+  padding-bottom: 56%;
+  overflow: hidden;
+  background-color: #000;
 `;
 
 const LogoContainer = styled.div`
-  color: white;
+  ${
+    '' /* color: white;
   background-color: transparent !important;
   z-index: 6;
   max-width: 1204px;
@@ -34,7 +42,16 @@ const LogoContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
+  flex-direction: column; */
+  }
+
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  color: #fff;
+  text-align: center;
+  z-index: 1;
 `;
 
 const Section = styled.section`
@@ -48,7 +65,7 @@ const Container = styled.div`
 `;
 
 const DescriptionSection = styled(Section)`
-  margin-bottom: 18rem;
+  margin-bottom: 15%;
 `;
 
 const DescriptionContainer = styled(Container)`
@@ -68,14 +85,14 @@ const DescriptionContainer = styled(Container)`
 const FeaturedWorkSection = styled(Section)`
   background-color: ${colours.offWhite};
   transform: skewY(11deg);
-  padding-bottom: 18rem;
+  padding-bottom: 15%;
   margin-bottom: -18rem;
 `;
 
 const FeaturedWorkContainer = styled(Container)`
   transform: skewY(-11deg);
   padding-top: 10rem;
-  padding-bottom: 20rem;
+  padding-bottom: 15rem;
 
   > div > h1 {
     color: ${colours.black};
@@ -94,7 +111,13 @@ const WorkCardsContainer = styled.div`
 `;
 
 const BcorpSection = styled(Section)`
+  ${'' /* position: relative; */}
+
+  height: 0;
   position: relative;
+  padding-bottom: 56%;
+  overflow: hidden;
+  background-color: #000;
 `;
 
 const BcorpLogoContainer = styled.div`
@@ -131,13 +154,28 @@ const StudiosContainer = styled(Container)`
 `;
 
 const StudiosImage = styled(Img)`
-  width: 20rem;
+  width: 4rem;
+  margin: auto;
+
+  @media ${breakpoints.laptop} {
+    width: 6rem;
+  }
+  @media ${breakpoints.laptopL} {
+    width: 8rem;
+  }
 `;
 
 const DupeLogo = styled(Img)`
   height: 100%;
   min-width: 10rem;
-  width: 30rem;
+  width: 10rem;
+  margin: auto;
+  @media ${breakpoints.tablet} {
+    width: 20rem;
+  }
+  @media ${breakpoints.laptopL} {
+    width: 30rem;
+  }
 `;
 
 const BcorpLogo = styled(Img)`
@@ -237,12 +275,12 @@ const IndexPage = ({ data }) => {
 
   return (
     <Layout color={'black'} logo>
-      <Video
+      {/* <Video
         videoSrcURL={data.allSanityHome.edges[0].node.mainVideo}
         videoTitle="Gangs"
         onLoad={() => handleLoad()}
         loaded={isLoading}
-      />
+      /> */}
       <VideoSection>
         <LogoContainer>
           {!isLoading ? (
@@ -265,6 +303,12 @@ const IndexPage = ({ data }) => {
           /* </LettersContainer> */
           null}
         </LogoContainer>
+        <Video
+          videoSrcURL={data.allSanityHome.edges[0].node.mainVideo}
+          videoTitle="Gangs"
+          onLoad={() => handleLoad()}
+          loaded={isLoading}
+        />
       </VideoSection>
 
       <DescriptionSection>
@@ -362,7 +406,6 @@ const IndexPage = ({ data }) => {
             return (
               <StudiosImage
                 fluid={value.logoImage.asset.fluid}
-                style={{ width: '12rem', margin: 'auto' }}
                 imgStyle={{ width: '100%', height: 'auto' }}
               />
             );

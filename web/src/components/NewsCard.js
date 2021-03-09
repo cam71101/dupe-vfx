@@ -42,9 +42,7 @@ const TextContainer = styled.div`
   padding-bottom: 1.5rem;
   padding-left: 1.5rem;
   background-color: inherit;
-  > h3 {
-    font-family: 'Euclid Regular';
-  }
+
 `;
 
 const NewsCard = ({ date, title, image, link }) => {

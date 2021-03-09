@@ -11,7 +11,6 @@ const Letter = styled.h2`
   -webkit-transition: all 1.5s ease;
   transition: all 1.5s ease;
   animation-fill-mode: forwards;
-  ${'' /* transform: translate(0px, 0px) rotate(0deg); */}
 `;
 
 const LetterContainer = styled.div`

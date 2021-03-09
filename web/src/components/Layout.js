@@ -26,13 +26,13 @@ const Image = styled(Img)`
 const Layout = (props) => {
   const [isHide, setIsHide] = React.useState(0);
 
-  React.useEffect(() => {
-    window.addEventListener('scroll', hideBar);
-  }, []);
+  // React.useEffect(() => {
+  //   window.addEventListener('scroll', hideBar);
+  // }, []);
 
-  const hideBar = () => {
-    window.scrollY > 300 ? setIsHide(1) : setIsHide(0);
-  };
+  // const hideBar = () => {
+  //   window.scrollY > 300 ? setIsHide(1) : setIsHide(0);
+  // };
 
   return (
     <StaticQuery
