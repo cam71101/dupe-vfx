@@ -25,7 +25,10 @@ const VideoContainer = styled.div`
   height: 100%;
   width: 100%; */
   }
-  height: calc(100vh - 100px);
+      position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
   width: 100%;
 `;
 
@@ -51,7 +54,7 @@ const VideoPlayer = styled.iframe`
   }
 
   ${'' /* width: 100% */}
-   position: absolute;
+  position: absolute;
   width: 60rem;
   height: 100%;
   transform: scale(1.07) translate(-200px);

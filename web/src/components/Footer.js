@@ -5,7 +5,6 @@ import Img from 'gatsby-image';
 import { faInstagram, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import { ThemeContext } from 'styled-components';
 
 import colours from '../styles/colours';
 import sizes from '../styles/sizes';
@@ -26,8 +25,8 @@ const Container = styled.div`
   display: flex;
 
   align-items: center;
-  padding-top: 10%;
-  padding-bottom: 10%;
+  padding-top: 6%;
+  padding-bottom: 6%;
   @media ${({ theme }) => theme.laptop} {
     width: ${sizes.containerWidth};
   }

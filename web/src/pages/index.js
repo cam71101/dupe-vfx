@@ -11,20 +11,6 @@ import BlockContent from '@sanity/block-content-to-react';
 import breakpoints from '../styles/breakpoints';
 
 const VideoSection = styled.section`
-  ${
-    '' /* position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center; */
-  }
-
   height: 500px;
   padding-bottom: 0;
   margin-bottom: 40px;
@@ -32,34 +18,18 @@ const VideoSection = styled.section`
   overflow: hidden;
 
   @media ${({ theme }) => theme.laptop} {
-    height: 500px;
     overflow: none;
     padding-bottom: 56%;
-    overflow: hidden;
-    background-color: #000;
+    height: 0;
+    margin-bottom: 105px;
   }
 `;
 
 const LogoContainer = styled.div`
-  ${
-    '' /* color: white;
-  background-color: transparent !important;
-  z-index: 6;
-  max-width: 1204px;
-  margin-right: auto;
-  margin-left: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column; */
-  }
-
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   width: 100%;
-  color: #fff;
-  text-align: center;
   z-index: 1;
 `;
 
@@ -83,14 +53,11 @@ const DescriptionSection = styled(Section)`
 const DescriptionContainer = styled(Container)`
   padding-top: 10%;
   padding-bottom: 6%;
-
   color: ${colours.offWhite};
 
   > * > h1 {
     color: ${colours.offWhite};
     margin-bottom: 5rem;
-  }
-  > div {
   }
 `;
 
@@ -104,9 +71,7 @@ const FeaturedWorkSection = styled(Section)`
 const FeaturedWorkContainer = styled(Container)`
   transform: skewY(-11deg);
   padding-top: 12%;
-
-  padding-bottom: 15rem;
-
+  padding-bottom: 17rem;
   > div > h1 {
     color: ${colours.black};
     margin-bottom: 5%;
@@ -127,14 +92,17 @@ const WorkCardsContainer = styled.div`
   }
 `;
 
-const BcorpSection = styled(Section)`
-  ${'' /* position: relative; */}
-
-  height: 0;
+const BcorpSection = styled(VideoSection)`
+  ${
+    '' /* height: 0;
   position: relative;
   padding-bottom: 56%;
   overflow: hidden;
-  background-color: #000;
+  background-color: #000; */
+  }
+  height: 400px;
+  margin-bottom: 0;
+  background-color: ${colours.black};
 `;
 
 const BcorpLogoContainer = styled.div`
@@ -197,7 +165,7 @@ const StudiosImage = styled(Img)`
 
 const DupeLogo = styled(Img)`
   height: 100%;
-  width: 5rem;
+  width: 8rem;
   margin: auto;
 
   @media ${breakpoints.mobileM} {
@@ -218,31 +186,12 @@ const BcorpLogo = styled(Img)`
   filter: invert(100%);
 `;
 
-const LettersContainer = styled.div`
-  width: 30rem;
-  position: relative;
-  -webkit-transition: all 1.5s ease;
-  transition: all 1.5s ease;
-  animation-fill-mode: forwards;
-`;
-
 const LetterContainer = styled.div`
   width: 25rem;
   position: absolute;
   -webkit-transition: all 1.5s ease;
   transition: all 1.5s;
   animation-fill-mode: forwards;
-`;
-
-const UContainer = styled(LetterContainer)`
-  left: 120px;
-`;
-const PContainer = styled(LetterContainer)`
-  left: 240px;
-`;
-
-const EContainer = styled(LetterContainer)`
-  left: 360px;
 `;
 
 const Letter = styled.h2`
@@ -255,50 +204,8 @@ const Letter = styled.h2`
   transform: translate(0px, 0px) rotate(0deg);
 `;
 
-const D = styled(Letter)`
-  ${'' /* transform: translate(263px, 39px) rotate(180deg); */}
-  -webkit-transition: all 1.5s ease;
-  transition: all 1.5s ease;
-  animation-fill-mode: forwards;
-  transform: translate(0px, 0px) rotate(0deg);
-  ${'' /* transform: translate(263px, 39px) rotate(180deg); */}
-`;
-
-const Test = styled.div`
-  width: 700px;
-  height: 420px;
-  overflow: hidden;
-  position: relative;
-  margin: 400px auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
 const IndexPage = ({ data }) => {
   const [isLoading, setIsLoading] = React.useState(true);
-  // const [isRotating, setIsRotating] = React.useState(0);
-
-  // React.useEffect(() => {
-  //   window.addEventListener('scroll', hideBar);
-  // }, []);
-
-  const hideBar = () => {
-    // console.log(window.scrollY);
-    // if (window.scrollY > 300) {
-    // setIsRotating(
-    //   `translate(${window.scrollY - 300}px) rotate(${
-    //     window.scrollY - 300
-    //   }deg)`
-    // );
-    //   setIsRotating(`rotate(180deg)`);
-    // } else {
-    //   setIsRotating(`translate(0px, 0px) rotate(0deg)`);
-    // }
-    // window.scrollY > 300
-    //   ? setIsRotating(`rotate(-${window.scrollY - 300}deg)`)
-    //   : setIsRotating('rotate(0deg)');
-  };
 
   const handleLoad = () => {
     setTimeout(() => {
@@ -306,37 +213,15 @@ const IndexPage = ({ data }) => {
     }, 500);
   };
 
-  let rotate;
-
   return (
     <Layout color={'black'} logo>
-      {/* <Video
-        videoSrcURL={data.allSanityHome.edges[0].node.mainVideo}
-        videoTitle="Gangs"
-        onLoad={() => handleLoad()}
-        loaded={isLoading}
-      /> */}
       <VideoSection>
         <LogoContainer>
-          {!isLoading ? (
+          {!isLoading && (
             <DupeLogo
               fluid={data.allSanityHome.edges[0].node.dupeLogo.asset.fluid}
             />
-          ) : /* <LettersContainer>
-              <LetterContainer style={{ transform: isRotating }}>
-                <D>d</D>
-              </LetterContainer> */
-          /* <UContainer>
-                <Letter>u</Letter>
-              </UContainer>
-              <PContainer>
-                <Letter>p</Letter>
-              </PContainer>
-              <EContainer>
-                <Letter>e</Letter>
-              </EContainer> */
-          /* </LettersContainer> */
-          null}
+          )}
         </LogoContainer>
         <Video
           videoSrcURL={data.allSanityHome.edges[0].node.mainVideo}
@@ -345,14 +230,8 @@ const IndexPage = ({ data }) => {
           loaded={isLoading}
         />
       </VideoSection>
-
       <DescriptionSection>
         <DescriptionContainer>
-          {/* <BlockContent
-            blocks={data.allSanityHome.nodes[0].children}
-            projectId="kbmcuoo3"
-            dataset="production"
-          /> */}
           <h1
             data-sal="fade"
             data-sal-delay="300"
@@ -363,7 +242,7 @@ const IndexPage = ({ data }) => {
           </h1>
           <h3
             data-sal="fade"
-            data-sal-delay="600"
+            data-sal-delay="450"
             data-sal-easing="ease"
             data-sal-duration="800"
           >
@@ -387,7 +266,7 @@ const IndexPage = ({ data }) => {
 
           <div
             data-sal="fade"
-            data-sal-delay="500"
+            data-sal-delay="400"
             data-sal-easing="ease"
             data-sal-duration="800"
           >
@@ -421,13 +300,11 @@ const IndexPage = ({ data }) => {
           data-sal-easing="ease"
           data-sal-duration="800"
         >
-          {/* <BcorpLogoContainer> */}
           <BcorpLogo
             fluid={data.allSanityHome.edges[0].node.bcorpLogo.asset.fluid}
             alt="logo"
             style={{}}
           />
-          {/* </BcorpLogoContainer> */}
 
           <BlockContent
             blocks={data.allSanityHome.nodes[0]._rawBcorpText}

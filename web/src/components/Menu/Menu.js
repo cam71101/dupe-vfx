@@ -1,14 +1,16 @@
 import React from 'react';
 import { StyledMenu } from './Menu.styled';
 import { bool } from 'prop-types';
+import { Link } from 'gatsby';
 
 const Menu = ({ open }) => {
   return (
     <StyledMenu open={open}>
-      <a href="/work">WORK</a>
-      <a href="/about">ABOUT</a>
-      <a href="/joinus">JOIN US</a>
-      <a href="/news">NEWS</a>
+      <Link href="/">HOME</Link>
+      <Link href="/work">WORK</Link>
+      <Link href="/about">ABOUT</Link>
+      <Link href="/joinus">JOIN US</Link>
+      <Link href="/news">NEWS</Link>
     </StyledMenu>
   );
 };

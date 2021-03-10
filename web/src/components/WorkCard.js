@@ -4,20 +4,29 @@ import SanityImage from 'gatsby-plugin-sanity-image';
 import { Link } from 'gatsby';
 import colours from '../styles/colours';
 
-const Title = styled.h2`
+const Title = styled.div`
   position: absolute;
-  top: 40%;
+  ${'' /* top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */}
+  width: 100%;
+  height: 100%;
   color: ${colours.white};
   opacity: 0;
   z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  > h2 {
+    text-align: center;
+    margin: auto;
+  }
 `;
 
 const StyledLink = styled(Link)`
   width: 100%;
   position: relative;
-  margin-bottom: 60px;
+  margin-bottom: 5%;
   :hover {
     cursor: pointer;
   }
@@ -41,7 +50,7 @@ const StyledLink = styled(Link)`
   }
 
   &:hover {
-    & > h2 {
+    & > div {
       opacity: 1;
     }
   }
@@ -53,7 +62,9 @@ const StyledLink = styled(Link)`
 const WorkCard = ({ title, image, link }) => {
   return (
     <StyledLink to={link}>
-      <Title>{title}</Title>
+      <Title>
+        <h2>{title}</h2>
+      </Title>
       <SanityImage
         {...image}
         width={1700}

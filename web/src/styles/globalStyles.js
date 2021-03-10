@@ -78,18 +78,17 @@ h1 {
 
 
   h3 {
-    margin-bottom: .5rem;
-    font-size: .4rem;
+    margin-bottom: 3%;
+    font-size: .5rem;
     font-family: 'Stanley Regular';
     font-weight: 100;
     line-height: .7rem;
     letter-spacing: .01rem;
 
-
     @media ${breakpoints.mobileM} {
-      font-size: .5rem;
+      font-size: .6rem;
       line-height: .7rem;
-      letter-spacing: .02rem;
+      letter-spacing: .03rem;
     } 
     
     @media ${breakpoints.mobileL} {
@@ -127,7 +126,7 @@ h1 {
   }
   h6 {
     margin: 6px;
-    font-size: .4rem;
+    font-size: .3rem;
     font-family: 'Euclid Light';
 
     @media ${breakpoints.mobileL} {
