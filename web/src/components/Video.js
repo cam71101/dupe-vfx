@@ -18,10 +18,14 @@ const VideoContainer = styled.div`
   z-index: 1 */
   }
 
-  position: absolute;
+  ${
+    '' /* position: absolute;
   top: 0;
   left: 0;
   height: 100%;
+  width: 100%; */
+  }
+  height: calc(100vh - 100px);
   width: 100%;
 `;
 
@@ -47,9 +51,14 @@ const VideoPlayer = styled.iframe`
   }
 
   ${'' /* width: 100% */}
-  position: absolute;
-  width: 100%;
+   position: absolute;
+  width: 60rem;
   height: 100%;
+  transform: scale(1.07) translate(-200px);
+  @media ${({ theme }) => theme.tablet} {
+    width: 100%;
+    transform: scale(1.07);
+  }
 `;
 
 const Test = styled.div`
@@ -77,7 +86,6 @@ const Video = ({ videoSrcURL, videoTitle, onLoad, loaded, ...props }) => {
       {/* <Test> */}
       <VideoPlayer
         style={{
-          transform: 'scale(1.07)',
           transition: 'opacity 500ms ease',
           opacity: opacity,
         }}
@@ -92,6 +100,9 @@ const Video = ({ videoSrcURL, videoTitle, onLoad, loaded, ...props }) => {
         // allowFullScreen
         width="1920"
         height="1080"
+        webkitallowfullscreen
+        mozallowfullscreen
+        allowfullscreen
       />
       {/* </Test> */}
     </VideoContainer>

@@ -88,7 +88,7 @@ const Layout = (props) => {
                 description={props.description}
               />
               <GlobalStyle />
-              <Image
+              {/* <Image
                 fluid={data.bcorpLogo.childImageSharp.fluid}
                 style={{
                   position: 'fixed',
@@ -98,7 +98,7 @@ const Layout = (props) => {
                   // opacity: isHide,
                 }}
                 imgStyle={{ filter: 'invert(100%)' }}
-              />
+              /> */}
 
               {props.logo ? (
                 <Header open={open} setOpen={setOpen} />

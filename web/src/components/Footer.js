@@ -5,6 +5,7 @@ import Img from 'gatsby-image';
 import { faInstagram, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { ThemeContext } from 'styled-components';
 
 import colours from '../styles/colours';
 import sizes from '../styles/sizes';
@@ -25,8 +26,8 @@ const Container = styled.div`
   display: flex;
 
   align-items: center;
-  padding-top: 5rem;
-  padding-bottom: 5rem;
+  padding-top: 10%;
+  padding-bottom: 10%;
   @media ${({ theme }) => theme.laptop} {
     width: ${sizes.containerWidth};
   }
@@ -37,7 +38,7 @@ const ImgContainer = styled.div`
 `;
 
 const Image = styled(Img)`
-  width: 10rem;
+  max-width: 50%;
 `;
 
 const Social = styled.div`
@@ -46,8 +47,10 @@ const Social = styled.div`
   justify-content: center;
   align-items: center;
   > * {
-    margin: 1rem;
+    ${'' /* margin: 1rem; */}
     width: 3rem;
+    display: flex;
+    justify-content: center;
   }
 `;
 
@@ -60,6 +63,12 @@ const Contact = styled.div`
     color: black;
     text-align: end;
   }
+`;
+
+const StyledLink = styled(Link)`
+  margin: 0;
+  display: flex;
+  justify-content: center;
 `;
 
 const Footer = ({ logo, color }) => {
@@ -77,15 +86,16 @@ const Footer = ({ logo, color }) => {
         <ImgContainer>
           <Image fluid={logo} />
         </ImgContainer>
+
         <Social>
-          <Link to="https://www.instagram.com/dupevfx/">
-            <FontAwesomeIcon icon={faInstagram} color={fgColor} size="lg" />
-          </Link>
-          <Link to="https://www.linkedin.com/company/dupevfx/">
-            <FontAwesomeIcon icon={faLinkedinIn} color={fgColor} size="lg" />
-          </Link>
+          <StyledLink to="https://www.instagram.com/dupevfx/">
+            <FontAwesomeIcon icon={faInstagram} color={fgColor} size="md" />
+          </StyledLink>
+          <StyledLink to="https://www.linkedin.com/company/dupevfx/">
+            <FontAwesomeIcon icon={faLinkedinIn} color={fgColor} size="md" />
+          </StyledLink>
           <a href="mailto:hello@dupevfx.com">
-            <FontAwesomeIcon icon={faEnvelope} color={fgColor} size="lg" />
+            <FontAwesomeIcon icon={faEnvelope} color={fgColor} size="md" />
           </a>
         </Social>
         <Contact>

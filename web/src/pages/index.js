@@ -24,11 +24,20 @@ const VideoSection = styled.section`
   -ms-flex-align: center;
   align-items: center; */
   }
-  height: 0;
+
+  height: 500px;
+  padding-bottom: 0;
+  margin-bottom: 40px;
   position: relative;
-  padding-bottom: 56%;
   overflow: hidden;
-  background-color: #000;
+
+  @media ${({ theme }) => theme.laptop} {
+    height: 500px;
+    overflow: none;
+    padding-bottom: 56%;
+    overflow: hidden;
+    background-color: #000;
+  }
 `;
 
 const LogoContainer = styled.div`
@@ -72,8 +81,8 @@ const DescriptionSection = styled(Section)`
 `;
 
 const DescriptionContainer = styled(Container)`
-  padding-top: 6rem;
-  padding-bottom: 6rem;
+  padding-top: 10%;
+  padding-bottom: 6%;
 
   color: ${colours.offWhite};
 
@@ -88,18 +97,19 @@ const DescriptionContainer = styled(Container)`
 const FeaturedWorkSection = styled(Section)`
   background-color: ${colours.offWhite};
   transform: skewY(11deg);
-  padding-bottom: 15%;
+  padding-bottom: 12%;
   margin-bottom: -18rem;
 `;
 
 const FeaturedWorkContainer = styled(Container)`
   transform: skewY(-11deg);
-  padding-top: 10rem;
+  padding-top: 12%;
+
   padding-bottom: 15rem;
 
   > div > h1 {
     color: ${colours.black};
-    margin-bottom: 5rem;
+    margin-bottom: 5%;
   }
 `;
 
@@ -162,8 +172,8 @@ const StudiosContainer = styled(Container)`
   margin: auto;
   display: flex;
   flex-wrap: wrap;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding-top: 2%;
+  padding-bottom: 2%;
 `;
 
 const StudiosImage = styled(Img)`
@@ -187,9 +197,12 @@ const StudiosImage = styled(Img)`
 
 const DupeLogo = styled(Img)`
   height: 100%;
-  min-width: 10rem;
-  width: 10rem;
+  width: 5rem;
   margin: auto;
+
+  @media ${breakpoints.mobileM} {
+    width: 10rem;
+  }
 
   @media ${breakpoints.tablet} {
     width: 20rem;

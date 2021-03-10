@@ -30,11 +30,25 @@ h2, h3, h4, h5, h6, p {
 
 h1 {
     margin: 0;
-    font-size: 60px; 
+    font-size: 30px; 
     font-weight: 400;
     color: ${colors.offWhite};
     margin-bottom: 1.5rem;
     font-family: 'Stanley Regular';
+
+    @media ${breakpoints.mobileS} {
+      font-size: 40px;  
+    }
+
+    @media ${breakpoints.mobileM} {
+      font-size: 50px;  
+    }
+
+     @media ${breakpoints.mobileL} {
+      font-size: 60px;  
+    }
+    
+    
     @media ${breakpoints.tablet} {
       font-size: 100px;  
     }
@@ -112,9 +126,17 @@ h1 {
     font-size: 1.3rem
   }
   h6 {
-    margin: 5px;
-    font-size: .9rem;
+    margin: 6px;
+    font-size: .4rem;
     font-family: 'Euclid Light';
+
+    @media ${breakpoints.mobileL} {
+       font-size: .7rem;
+    }
+
+    @media ${breakpoints.laptopL} {
+       font-size: .9rem;
+    }
   }
   p {
     margin-bottom: 1rem;
@@ -132,6 +154,17 @@ h1 {
     font-size: .7rem;
      @media ${breakpoints.laptopL} {
        font-size: 1rem;
+    }
+  }
+  .svg-inline--fa {
+    font-size: .7rem;
+
+    @media ${breakpoints.mobileL} {
+      font-size: 1rem;
+    }
+
+    @media ${breakpoints.laptopL} {
+      font-size: 1.5rem;
     }
   }
   ${

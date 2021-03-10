@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/cam71101/dupe-vfx#readme",
   "dependencies": {
-    "lerna": "^3.22.1"
+    "lerna": "^3.22.1",
+    "prop-types": "^15.7.2",
+    "smooth-scrollbar-react": "^1.0.1"
   }
 }
