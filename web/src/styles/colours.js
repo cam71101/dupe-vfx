@@ -10,4 +10,7 @@ export default {
   laptop: `(min-width: 1024px)`,
   laptopL: `(min-width: 1440px)`,
   desktop: `(min-width: 2560)`,
+  containerWidth: '65%',
+  containerMobileWidth: '95%',
+  paddingTop: '12rem',
 };

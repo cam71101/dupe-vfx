@@ -25,7 +25,7 @@ const VideoContainer = styled.div`
   height: 100%;
   width: 100%; */
   }
-      position: absolute;
+position: absolute;
   top: 0;
   left: 0;
   height: 100%;

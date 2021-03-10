@@ -17,8 +17,11 @@ const MainContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: ${sizes.containerWidth};
+  width: ${({ theme }) => theme.containerMobileWidth};
   height: 8rem;
+  @media ${({ theme }) => theme.laptop} {
+    width: ${sizes.containerWidth};
+  }
 `;
 
 const Container = styled.div`
@@ -45,7 +48,10 @@ const TextContainer = styled.div`
 `;
 
 const Image = styled(Img)`
-  width: 10rem;
+  width: 5rem;
+  @media ${({ theme }) => theme.laptop} {
+    width: 10rem;
+  }
 `;
 
 const Text = styled.span`

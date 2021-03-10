@@ -13,12 +13,15 @@ const Main = styled.main`
 `;
 
 const Section = styled.section`
-  width: ${sizes.containerWidth};
+  width: ${({ theme }) => theme.containerMobileWidth};
   margin: auto;
   padding-top: ${sizes.paddingTop};
-  padding-bottom: 15rem;
+  padding-bottom: 10vh;
   background-color: transparent;
   z-index: 1;
+  @media ${({ theme }) => theme.laptop} {
+    width: ${sizes.containerWidth};
+  }
 `;
 
 const CardsContainer = styled.div`

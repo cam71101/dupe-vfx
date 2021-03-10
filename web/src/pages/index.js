@@ -39,7 +39,7 @@ const Section = styled.section`
 `;
 
 const Container = styled.div`
-  width: 95%;
+  width: ${({ theme }) => theme.containerMobileWidth};
   margin: auto;
   @media ${({ theme }) => theme.laptop} {
     width: ${sizes.containerWidth};
@@ -213,6 +213,7 @@ const IndexPage = ({ data }) => {
     }, 500);
   };
 
+  console.log(data.allSanityHome.edges[0].node.mainVideo);
   return (
     <Layout color={'black'} logo>
       <VideoSection>

@@ -75,45 +75,34 @@ h1 {
     }
   }
 
-
-
   h3 {
     margin-bottom: 3%;
-    font-size: .5rem;
+    font-size: 1rem;
     font-family: 'Stanley Regular';
     font-weight: 100;
-    line-height: .7rem;
+    line-height: 1.2rem;
     letter-spacing: .01rem;
 
-    @media ${breakpoints.mobileM} {
-      font-size: .6rem;
-      line-height: .7rem;
-      letter-spacing: .03rem;
-    } 
-    
+
     @media ${breakpoints.mobileL} {
-      font-size: .7rem;
+      font-size: 1.7rem;
       letter-spacing: .03rem;
-      line-height: 1.2rem;
+      line-height: 2rem;
     }
 
-    @media ${breakpoints.tablet} {
-      font-size: 1.2rem;
-      line-height: 1.8rem;
-      letter-spacing: .02rem;
-
-    }
 
     @media ${breakpoints.laptop} {
-     font-size: 1.3rem;
-     line-height: 2rem;
-    letter-spacing: .08rem;
+     font-size: 2rem;
+     line-height: 2.5rem;
+      letter-spacing: .08rem;
     }
     
-    @media ${breakpoints.laptopL} {
+    ${
+      '' /* @media ${breakpoints.laptopL} {
      font-size: 2rem;
      line-height: 3rem;
      letter-spacing: .15rem;
+    } */
     }
   }
   h4 {
@@ -122,7 +111,12 @@ h1 {
   }
   h5 {
     margin: 0;
-    font-size: 1.3rem
+    font-size: .7rem;
+    line-height: 1rem;
+    @media ${breakpoints.tablet} {
+      font-size: 1rem;
+      line-height: 1.8rem;
+    }
   }
   h6 {
     margin: 6px;
@@ -139,8 +133,12 @@ h1 {
   }
   p {
     margin-bottom: 1rem;
-    font-size: 1.1rem;
+    font-size: 1rem;
     line-height: 2.1rem;
+    @media ${breakpoints.tablet} {
+      font-size: 1.1rem;
+    }
+
   }
   li {
   font-size: 1.2rem;
@@ -155,7 +153,8 @@ h1 {
        font-size: 1rem;
     }
   }
-  .svg-inline--fa {
+  ${
+    '' /* .svg-inline--fa {
     font-size: .7rem;
 
     @media ${breakpoints.mobileL} {
@@ -165,6 +164,7 @@ h1 {
     @media ${breakpoints.laptopL} {
       font-size: 1.5rem;
     }
+  } */
   }
   ${
     '' /* [data-lqip] {

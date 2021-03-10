@@ -1,4 +1,4 @@
 export default {
   containerWidth: '65%',
-  paddingTop: '12rem',
+  paddingTop: '15vh',
 };
