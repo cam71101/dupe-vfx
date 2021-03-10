@@ -55,9 +55,6 @@ const Social = styled.div`
 
 const Contact = styled.div`
   flex: 1;
-  ${'' /* display: flex;
-  align-content: flex-end;
-  flex-direction: column; */}
   > h6 {
     color: black;
     text-align: end;
@@ -68,6 +65,18 @@ const StyledLink = styled(Link)`
   margin: 0;
   display: flex;
   justify-content: center;
+`;
+
+const Icon = styled(FontAwesomeIcon)`
+  font-size: 0.7rem;
+
+  @media ${({ theme }) => theme.mobileL} {
+    font-size: 1rem;
+  }
+
+  @media ${({ theme }) => theme.laptopL} {
+    font-size: 1.5rem;
+  }
 `;
 
 const Footer = ({ logo, color }) => {
@@ -85,16 +94,15 @@ const Footer = ({ logo, color }) => {
         <ImgContainer>
           <Image fluid={logo} />
         </ImgContainer>
-
         <Social>
           <StyledLink to="https://www.instagram.com/dupevfx/">
-            <FontAwesomeIcon icon={faInstagram} color={fgColor} size="md" />
+            <Icon icon={faInstagram} color={fgColor} size="md" />
           </StyledLink>
           <StyledLink to="https://www.linkedin.com/company/dupevfx/">
-            <FontAwesomeIcon icon={faLinkedinIn} color={fgColor} size="md" />
+            <Icon icon={faLinkedinIn} color={fgColor} size="md" />
           </StyledLink>
           <a href="mailto:hello@dupevfx.com">
-            <FontAwesomeIcon icon={faEnvelope} color={fgColor} size="md" />
+            <Icon icon={faEnvelope} color={fgColor} size="md" />
           </a>
         </Social>
         <Contact>

@@ -33,32 +33,27 @@ position: absolute;
 `;
 
 const VideoPlayer = styled.iframe`
-  ${
-    '' /* position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  height: 100%; */
-  }
-
-  ${
-    '' /* position: absolute;
-  width: auto;
-  height: auto;
-  min-width: 100%;
-  min-height: 100%;
-  top: 50%;
-  left: 50%; */
-  }
-
-  ${'' /* width: 100% */}
   position: absolute;
-  width: 60rem;
+  width: 70rem;
   height: 100%;
-  transform: scale(1.07) translate(-200px);
+  transform: scale(1.07) translate(-250px);
   @media ${({ theme }) => theme.tablet} {
+    width: 90rem;
+    transform: scale(1.07) translate(-210px);
+  }
+  @media ${({ theme }) => theme.laptop} {
+    width: 100%;
+    transform: scale(1.07);
+  }
+`;
+
+const BcorpVideoPlayer = styled(VideoPlayer)`
+  transform: scale(1.2) translate(-250px);
+  @media ${({ theme }) => theme.tablet} {
+    width: 90rem;
+    transform: scale(1.2) translate(-210px);
+  }
+  @media ${({ theme }) => theme.laptop} {
     width: 100%;
     transform: scale(1.07);
   }
@@ -77,7 +72,14 @@ const Test = styled.div`
   transform: translate(-50%, -50%); */}
 `;
 
-const Video = ({ videoSrcURL, videoTitle, onLoad, loaded, ...props }) => {
+const Video = ({
+  videoSrcURL,
+  videoTitle,
+  onLoad,
+  loaded,
+  bCorp,
+  ...props
+}) => {
   let opacity = 0;
 
   if (!loaded) {
@@ -86,28 +88,49 @@ const Video = ({ videoSrcURL, videoTitle, onLoad, loaded, ...props }) => {
 
   return (
     <VideoContainer>
-      {/* <Test> */}
-      <VideoPlayer
-        style={{
-          transition: 'opacity 500ms ease',
-          opacity: opacity,
-        }}
-        onLoad={onLoad}
-        src={videoSrcURL}
-        title={videoTitle}
-        // allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-        allow="autoplay; fullscreen"
-        frameBorder="0"
-        // webkitallowfullscreen="true"
-        // mozallowfullscreen="true"
-        // allowFullScreen
-        width="1920"
-        height="1080"
-        webkitallowfullscreen
-        mozallowfullscreen
-        allowfullscreen
-      />
-      {/* </Test> */}
+      {!bCorp ? (
+        <VideoPlayer
+          style={{
+            transition: 'opacity 500ms ease',
+            opacity: opacity,
+          }}
+          onLoad={onLoad}
+          src={videoSrcURL}
+          title={videoTitle}
+          // allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allow="autoplay; fullscreen"
+          frameBorder="0"
+          // webkitallowfullscreen="true"
+          // mozallowfullscreen="true"
+          // allowFullScreen
+          width="1920"
+          height="1080"
+          webkitallowfullscreen
+          mozallowfullscreen
+          allowfullscreen
+        />
+      ) : (
+        <BcorpVideoPlayer
+          style={{
+            transition: 'opacity 500ms ease',
+            opacity: opacity,
+          }}
+          onLoad={onLoad}
+          src={videoSrcURL}
+          title={videoTitle}
+          // allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allow="autoplay; fullscreen"
+          frameBorder="0"
+          // webkitallowfullscreen="true"
+          // mozallowfullscreen="true"
+          // allowFullScreen
+          width="1920"
+          height="1080"
+          webkitallowfullscreen
+          mozallowfullscreen
+          allowfullscreen
+        />
+      )}
     </VideoContainer>
   );
 };

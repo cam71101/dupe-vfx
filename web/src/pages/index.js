@@ -13,7 +13,7 @@ import breakpoints from '../styles/breakpoints';
 const VideoSection = styled.section`
   height: 500px;
   padding-bottom: 0;
-  margin-bottom: 40px;
+  ${'' /* margin-bottom: 40px; */}
   position: relative;
   overflow: hidden;
 
@@ -21,7 +21,7 @@ const VideoSection = styled.section`
     overflow: none;
     padding-bottom: 56%;
     height: 0;
-    margin-bottom: 105px;
+    ${'' /* margin-bottom: 105px; */}
   }
 `;
 
@@ -54,11 +54,6 @@ const DescriptionContainer = styled(Container)`
   padding-top: 10%;
   padding-bottom: 6%;
   color: ${colours.offWhite};
-
-  > * > h1 {
-    color: ${colours.offWhite};
-    margin-bottom: 5rem;
-  }
 `;
 
 const FeaturedWorkSection = styled(Section)`
@@ -100,7 +95,7 @@ const BcorpSection = styled(VideoSection)`
   overflow: hidden;
   background-color: #000; */
   }
-  height: 400px;
+  height: 700px;
   margin-bottom: 0;
   background-color: ${colours.black};
 `;
@@ -123,6 +118,10 @@ const BcorpContainer = styled(Container)`
   margin: auto;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  @media ${({ theme }) => theme.tablet} {
+    flex-direction: row;
+  }
   > * > h3 {
     margin-bottom: 1rem;
     @media ${({ theme }) => theme.laptop} {
@@ -182,8 +181,11 @@ const DupeLogo = styled(Img)`
 `;
 
 const BcorpLogo = styled(Img)`
-  width: 100%;
+  width: 10rem;
   filter: invert(100%);
+  @media ${breakpoints.tablet} {
+    width: 100%;
+  }
 `;
 
 const LetterContainer = styled.div`
@@ -214,6 +216,7 @@ const IndexPage = ({ data }) => {
   };
 
   console.log(data.allSanityHome.edges[0].node.mainVideo);
+
   return (
     <Layout color={'black'} logo>
       <VideoSection>
@@ -293,6 +296,7 @@ const IndexPage = ({ data }) => {
         <Video
           videoSrcURL="https://player.vimeo.com/video/363119176?app_id=122963?&autoplay=1&loop=1&title=0&byline=0&portrait=0&muted=1&background=1"
           videoTitle="Bubble"
+          bCorp
         />
 
         <BcorpContainer

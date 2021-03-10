@@ -6,13 +6,10 @@ import colours from '../styles/colours';
 
 const Title = styled.div`
   position: absolute;
-  ${'' /* top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); */}
   width: 100%;
   height: 100%;
   color: ${colours.white};
-  opacity: 0;
+  opacity: 1;
   z-index: 2;
   display: flex;
   justify-content: center;
@@ -20,6 +17,9 @@ const Title = styled.div`
   > h2 {
     text-align: center;
     margin: auto;
+  }
+  @media ${({ theme }) => theme.laptop} {
+    opacity: 0;
   }
 `;
 
@@ -35,7 +35,6 @@ const StyledLink = styled(Link)`
     content: '';
     position: absolute;
     top: 0;
-
     left: 0;
     bottom: 0;
     right: 0;
@@ -43,6 +42,12 @@ const StyledLink = styled(Link)`
     transition: transform 300ms ease-in-out;
     background-color: black;
     opacity: 0;
+  }
+  &::after {
+    opacity: 0.5;
+    @media ${({ theme }) => theme.laptop} {
+      opacity: 0;
+    }
   }
 
   &:hover::after {

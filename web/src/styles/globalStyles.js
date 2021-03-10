@@ -35,6 +35,7 @@ h1 {
     color: ${colors.offWhite};
     margin-bottom: 1.5rem;
     font-family: 'Stanley Regular';
+    margin-bottom: 5%;
 
     @media ${breakpoints.mobileS} {
       font-size: 40px;  
@@ -85,9 +86,14 @@ h1 {
 
 
     @media ${breakpoints.mobileL} {
-      font-size: 1.7rem;
+      font-size: 1.4rem;
       letter-spacing: .03rem;
       line-height: 2rem;
+    }
+
+    @media ${breakpoints.tablet} {
+      font-size: 1.5rem;
+      letter-spacing: .03rem;
     }
 
 
@@ -95,6 +101,12 @@ h1 {
      font-size: 2rem;
      line-height: 2.5rem;
       letter-spacing: .08rem;
+    }
+
+    @media ${breakpoints.laptopL} {
+     font-size: 2.5rem;
+     line-height: 3.5rem;
+      letter-spacing: .1rem;
     }
     
     ${
