@@ -11,7 +11,6 @@ import Seo from '../components/SEO';
 import theme from '../styles/theme';
 
 const Main = styled.main`
-  min-height: 100vh;
   max-width: 100vw;
   -ms-overflow-style: none;
 `;
@@ -23,6 +22,22 @@ const Image = styled(Img)`
   transition: opacity ease 250ms;
   > img {
     filter: invert(100%);
+  }
+`;
+
+const BcorpContainer = styled.div`
+  position: fixed;
+  right: 0%;
+  bottom: 10%;
+  z-index: 10;
+  width: 10rem;
+  @media ${({ theme }) => theme.mobileL} {
+    width: 15rem;
+  }
+  @media ${({ theme }) => theme.desktop} {
+    width: 20rem;
+    right: 0%;
+    top: 50%;
   }
 `;
 
@@ -81,17 +96,13 @@ const Layout = (props) => {
                 description={props.description}
               />
               <GlobalStyle />
-              {/* <Image
-                fluid={data.bcorpLogo.childImageSharp.fluid}
-                style={{
-                  position: 'fixed',
-                  right: '-4%',
-                  top: '50%',
-                  transform: 'translateX(-50%)',
-                  // opacity: isHide,
-                }}
-                imgStyle={{ filter: 'invert(100%)' }}
-              /> */}
+              <BcorpContainer>
+                <Image
+                  fluid={data.bcorpLogo.childImageSharp.fluid}
+                  style={{ width: '100%' }}
+                  imgStyle={{ filter: 'invert(100%)' }}
+                />
+              </BcorpContainer>
 
               {props.logo ? (
                 <Header open={open} setOpen={setOpen} />

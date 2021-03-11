@@ -14,7 +14,7 @@ import Video from '../components/Video';
 
 const Section = styled.section`
   width: 100%;
-  padding-top: 3vh;
+  padding-top: 2vh;
   margin-bottom: 10%;
 `;
 
@@ -110,7 +110,8 @@ const YouTube = styled.iframe`
 
 const CreditsContainer = styled.div`
   padding-left: 0rem;
-  order: 1;
+  order: 3;
+
   @media ${breakpoints.tablet} {
     padding-left: 10rem;
     order: 3;

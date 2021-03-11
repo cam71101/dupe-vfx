@@ -84,6 +84,7 @@ const BcorpFirstText = styled(FirstText)`
   order: 3;
   @media ${({ theme }) => theme.tablet} {
     order: 1;
+    width: 60%;
   }
 `;
 
@@ -177,9 +178,6 @@ const About = ({ data }) => {
           </Text>
           <BCorpTitle>
             <h1>We are a B Corp!</h1>
-            <h3>
-              Stunning visual effects by treating people & the planet properly.
-            </h3>
           </BCorpTitle>
           <Text>
             <BcorpFirstText>
@@ -227,7 +225,6 @@ const About = ({ data }) => {
             <ImageContainer>
               <BcorpLogo
                 fluid={data.allSanityAbout.edges[0].node.bCorpLogo.asset.fluid}
-                // style={{ height: '50%' }}
               />
             </ImageContainer>
           </Text>
