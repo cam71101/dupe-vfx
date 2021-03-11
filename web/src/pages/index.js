@@ -4,16 +4,12 @@ import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import Video from '../components/Video';
 import Img from 'gatsby-image';
-import colours from '../styles/colours';
-import sizes from '../styles/sizes';
 import WorkCard from '../components/WorkCard';
 import BlockContent from '@sanity/block-content-to-react';
-import breakpoints from '../styles/breakpoints';
 
 const VideoSection = styled.section`
   height: 500px;
   padding-bottom: 0;
-  ${'' /* margin-bottom: 40px; */}
   position: relative;
   overflow: hidden;
 
@@ -21,7 +17,6 @@ const VideoSection = styled.section`
     overflow: none;
     padding-bottom: 56%;
     height: 0;
-    ${'' /* margin-bottom: 105px; */}
   }
 `;
 
@@ -33,16 +28,34 @@ const LogoContainer = styled.div`
   z-index: 1;
 `;
 
+const DupeLogo = styled(Img)`
+  height: 100%;
+  width: 8rem;
+  margin: auto;
+
+  @media ${({ theme }) => theme.mobileM} {
+    width: 10rem;
+  }
+
+  @media ${({ theme }) => theme.tablet} {
+    width: 20rem;
+  }
+  @media ${({ theme }) => theme.laptopL} {
+    width: 30rem;
+    }
+  }
+`;
+
 const Section = styled.section`
   max-width: 100vw;
-  background-color: ${colours.black};
+  background-color: ${({ theme }) => theme.black};
 `;
 
 const Container = styled.div`
   width: ${({ theme }) => theme.containerMobileWidth};
   margin: auto;
   @media ${({ theme }) => theme.laptop} {
-    width: ${sizes.containerWidth};
+    width: ${({ theme }) => theme.containerWidth};
   }
 `;
 
@@ -53,11 +66,11 @@ const DescriptionSection = styled(Section)`
 const DescriptionContainer = styled(Container)`
   padding-top: 10%;
   padding-bottom: 6%;
-  color: ${colours.offWhite};
+  color: ${({ theme }) => theme.offWhite};
 `;
 
 const FeaturedWorkSection = styled(Section)`
-  background-color: ${colours.offWhite};
+  background-color: ${({ theme }) => theme.offWhite};
   transform: skewY(11deg);
   padding-bottom: 12%;
   margin-bottom: -18rem;
@@ -68,7 +81,7 @@ const FeaturedWorkContainer = styled(Container)`
   padding-top: 12%;
   padding-bottom: 17rem;
   > div > h1 {
-    color: ${colours.black};
+    color: ${({ theme }) => theme.black};
     margin-bottom: 5%;
   }
 `;
@@ -88,23 +101,9 @@ const WorkCardsContainer = styled.div`
 `;
 
 const BcorpSection = styled(VideoSection)`
-  ${
-    '' /* height: 0;
-  position: relative;
-  padding-bottom: 56%;
-  overflow: hidden;
-  background-color: #000; */
-  }
   height: 700px;
   margin-bottom: 0;
-  background-color: ${colours.black};
-`;
-
-const BcorpLogoContainer = styled.div`
-  width: 60rem;
-  @media ${({ theme }) => theme.laptop} {
-    width: 120rem;
-  }
+  background-color: ${({ theme }) => theme.black};
 `;
 
 const BcorpContainer = styled(Container)`
@@ -128,11 +127,19 @@ const BcorpContainer = styled(Container)`
       margin-bottom: 2rem;
     }
   }
-  color: ${colours.white};
+  color: ${({ theme }) => theme.white};
+`;
+
+const BcorpLogo = styled(Img)`
+  width: 10rem;
+  filter: invert(100%);
+  @media ${({ theme }) => theme.tablet} {
+    width: 100%;
+  }
 `;
 
 const StudiosSection = styled(Section)`
-  background-color: ${colours.offWhite};
+  background-color: ${({ theme }) => theme.offWhite};
 `;
 
 const StudiosContainer = styled(Container)`
@@ -146,64 +153,20 @@ const StudiosContainer = styled(Container)`
 const StudiosImage = styled(Img)`
   width: 2rem;
   margin: auto;
-  @media ${breakpoints.mobileM} {
+  @media ${({ theme }) => theme.mobileM} {
     width: 3rem;
   }
 
-  @media ${breakpoints.tablet} {
+  @media ${({ theme }) => theme.tablet} {
     width: 4rem;
   }
 
-  @media ${breakpoints.laptop} {
+  @media ${({ theme }) => theme.laptop} {
     width: 6rem;
   }
-  @media ${breakpoints.laptopL} {
+  @media ${({ theme }) => theme.laptopL} {
     width: 8rem;
   }
-`;
-
-const DupeLogo = styled(Img)`
-  height: 100%;
-  width: 8rem;
-  margin: auto;
-
-  @media ${breakpoints.mobileM} {
-    width: 10rem;
-  }
-
-  @media ${breakpoints.tablet} {
-    width: 20rem;
-  }
-  @media ${breakpoints.laptopL} {
-    width: 30rem;
-    }
-  }
-`;
-
-const BcorpLogo = styled(Img)`
-  width: 10rem;
-  filter: invert(100%);
-  @media ${breakpoints.tablet} {
-    width: 100%;
-  }
-`;
-
-const LetterContainer = styled.div`
-  width: 25rem;
-  position: absolute;
-  -webkit-transition: all 1.5s ease;
-  transition: all 1.5s;
-  animation-fill-mode: forwards;
-`;
-
-const Letter = styled.h2`
-  font-size: 12rem;
-  color: ${colours.offWhite};
-  margin: 10px;
-  -webkit-transition: all 1.5s ease;
-  transition: all 1.5s ease;
-  animation-fill-mode: forwards;
-  transform: translate(0px, 0px) rotate(0deg);
 `;
 
 const IndexPage = ({ data }) => {
@@ -214,8 +177,6 @@ const IndexPage = ({ data }) => {
       setIsLoading(false);
     }, 500);
   };
-
-  console.log(data.allSanityHome.edges[0].node.mainVideo);
 
   return (
     <Layout color={'black'} logo>

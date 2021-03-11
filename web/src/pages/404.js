@@ -1,54 +1,58 @@
-import * as React from "react"
-import { Link } from "gatsby"
+import * as React from 'react';
+import { Link } from 'gatsby';
+import Layout from '../components/Layout';
+import styled from 'styled-components';
 
 // styles
-const pageStyles = {
-  color: "#232129",
-  padding: "96px",
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-}
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-}
 
-const paragraphStyles = {
-  marginBottom: 48,
-}
-const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
-}
+const Main = styled.section`
+  max-width: 100vw;
+  height: 100vh;
+  background-color: ${({ theme }) => theme.black};
+  padding-top: 10%;
+`;
+
+const Container = styled.div`
+  width: ${({ theme }) => theme.containerMobileWidth};
+  margin: auto;
+  color: white;
+  @media ${({ theme }) => theme.laptop} {
+    width: ${({ theme }) => theme.containerWidth};
+  }
+  > h4 {
+    margin-bottom: 2%;
+  }
+  > ul {
+    margin-bottom: 2%;
+    > li {
+      margin-left: 6%;
+      margin-bottom: 1%;
+    }
+  }
+`;
 
 // markup
 const NotFoundPage = () => {
   return (
-    <main style={pageStyles}>
-      <title>Not found</title>
-      <h1 style={headingStyles}>Page not found</h1>
-      <p style={paragraphStyles}>
-        Sorry{" "}
-        <span role="img" aria-label="Pensive emoji">
-          😔
-        </span>{" "}
-        we couldn’t find what you were looking for.
-        <br />
-        {process.env.NODE_ENV === "development" ? (
-          <>
-            <br />
-            Try creating a page in <code style={codeStyles}>src/pages/</code>.
-            <br />
-          </>
-        ) : null}
-        <br />
-        <Link to="/">Go home</Link>.
-      </p>
-    </main>
-  )
-}
+    <Layout>
+      <Main>
+        <Container>
+          <h4>We couldn't find the page you were looking for.</h4>
+          <ul>
+            <li>
+              There is an error in the URL entered into your web browser. Please
+              check the URL and try again.
+            </li>
+            <li>The page you are looking for has been moved or deleted.</li>
+          </ul>
+          <h4>
+            You can return to our homepage by clicking here, or you can try
+            searching for the content you are seeking by clicking here.
+          </h4>
+        </Container>
+      </Main>
+    </Layout>
+  );
+};
 
-export default NotFoundPage
+export default NotFoundPage;

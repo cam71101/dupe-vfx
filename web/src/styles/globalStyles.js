@@ -165,6 +165,13 @@ h1 {
        font-size: 1rem;
     }
   }
+  ul {
+    list-style-type: disc;
+  }
+  li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+  }
   ${
     '' /* .svg-inline--fa {
     font-size: .7rem;
