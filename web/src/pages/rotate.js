@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import Layout from '../components/Layout';
-import colours from '../styles/colours';
+import colours from '../styles/theme';
 import sizes from '../styles/sizes';
 
 const Letter = styled.h2`

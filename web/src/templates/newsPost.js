@@ -3,19 +3,23 @@ import styled from 'styled-components';
 
 import Layout from '../components/Layout';
 import BlockContent from '@sanity/block-content-to-react';
-import colours from '../styles/colours';
+import colours from '../styles/theme';
 import { graphql } from 'gatsby';
 
 const Section = styled.section`
   max-width: 100vw;
   min-height: 100vh;
-  padding-top: 15rem;
+  padding-top: ${({ theme }) => theme.paddingTop};
   padding-bottom: 15rem;
 `;
 const Container = styled.div`
-  width: 52%;
+  width: ${({ theme }) => theme.containerMobileWidth};
   margin: auto;
-  color: ${colours.white};
+  color: ${({ theme }) => theme.white};
+
+  @media ${({ theme }) => theme.laptop} {
+    width: 52%;
+  }
   > h1 {
     color: ${colours.offWhite};
   }

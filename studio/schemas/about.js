@@ -29,6 +29,11 @@ export default {
       type: 'image',
     },
     {
+      name: 'bCorpLogo',
+      title: 'B Corp Logo',
+      type: 'image',
+    },
+    {
       name: 'desc',
       type: 'array',
       title: 'Description',

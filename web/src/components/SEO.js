@@ -45,7 +45,6 @@ const SEO = ({ title, description, image, article }) => {
       )}
       {seo.image && <meta name="twitter:image" content={seo.image} />}
 
-      {/* favicon */}
       <link
         rel="apple-touch-icon-precomposed"
         sizes="57x57"

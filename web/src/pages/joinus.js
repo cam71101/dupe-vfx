@@ -7,7 +7,7 @@ import JobCard from '../components/JobCard';
 import { Link } from 'gatsby';
 import SanityImage from 'gatsby-plugin-sanity-image';
 
-import colours from '../styles/colours';
+import colours from '../styles/theme';
 import sizes from '../styles/sizes';
 
 const Main = styled.main`

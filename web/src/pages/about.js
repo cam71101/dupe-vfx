@@ -3,14 +3,14 @@ import Layout from '../components/Layout';
 import styled from 'styled-components';
 import { graphql } from 'gatsby';
 import BlockContent from '@sanity/block-content-to-react';
-import colours from '../styles/colours';
+import colours from '../styles/theme';
 import sizes from '../styles/sizes';
 import Img from 'gatsby-image';
 
 const Main = styled.main`
-  height: 100vh;
   max-width: 100vw;
   background-color: ${colours.black};
+  padding-bottom: 5%;
   positon: absolute;
   overflow: hidden;
   position: relative;
@@ -18,39 +18,106 @@ const Main = styled.main`
 
 const TextContainer = styled.div`
   color: ${colours.white};
-  width: ${sizes.containerWidth};
-  margin: auto;
+  width: ${({ theme }) => theme.containerMobileWidth};
   padding-top: ${sizes.paddingTop};
-  display: 'flex';
+  margin: auto;
   background-color: transparent !important;
   position: relative;
-  z-index: 3;
-  ${
-    '' /* > div:nth-child(2) {
-    display: flex;
-    flex-direction: column;
-    max-width: 30%;
-    margin-right: 20rem;
-  } */
+  z-index: 4;
+  @media ${({ theme }) => theme.laptop} {
+    width: ${sizes.containerWidth};
   }
 `;
 
 const Title = styled.div`
-  width: 80%;
+  width: 100%;
+  @media ${({ theme }) => theme.desktop} {
+    width: 80%;
+  }
 `;
 
 const Text = styled.div`
   display: flex;
-  width: 80%;
+  width: 100%;
+  flex-direction: column;
+  @media ${({ theme }) => theme.tablet} {
+    flex-direction: row;
+  }
+  @media ${({ theme }) => theme.desktop} {
+    width: 80%;
+  }
 `;
 
 const FirstText = styled.div`
-  width: 40%;
+  width: 100%;
   margin-right: 10%;
+  @media ${({ theme }) => theme.tablet} {
+    width: 40%;
+  }
 `;
 
 const SecondText = styled.div`
-  width: 50%;
+  width: 100%;
+  @media ${({ theme }) => theme.tablet} {
+    width: 50%;
+  }
+`;
+
+const BcorpLogo = styled(Img)`
+  max-width: 35rem;
+  filter: invert(100%);
+`;
+
+const BcorpFirstText = styled(FirstText)`
+  order: 3;
+  @media ${({ theme }) => theme.tablet} {
+    order: 1;
+  }
+`;
+
+const ImageContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  order: 1;
+  z-index: 4;
+
+  @media ${({ theme }) => theme.tablet} {
+    width: 50%;
+    order: 3;
+  }
+`;
+
+const FirstBubble = styled.div`
+  position: absolute;
+  zindex: 0;
+  top: -2%;
+  right: -5%;
+  @media ${({ theme }) => theme.tablet} {
+    top: -10%;
+    right: -5%;
+  }
+`;
+
+const SecondBubble = styled.div`
+  position: absolute;
+  zindex: 0;
+  top: 60%;
+  right: -5%;
+  @media ${({ theme }) => theme.tablet} {
+    top: 70%;
+    right: -5%;
+  }
+`;
+
+const ThirdBubble = styled.div`
+  position: absolute;
+  zindex: 0;
+  top: -2%;
+  left: -5%;
+  @media ${({ theme }) => theme.tablet} {
+    top: -2%;
+    left: -5%;
+  }
 `;
 
 const About = ({ data }) => {
@@ -97,37 +164,87 @@ const About = ({ data }) => {
               <p>Happy team, happy clients. Everybody wins.</p>
             </SecondText>
           </Text>
+          <Title>
+            <h1>We are a B Corp!</h1>
+            <h3>
+              Stunning visual effects by treating people & the planet properly.
+            </h3>
+          </Title>
+          <Text>
+            <BcorpFirstText>
+              <p>
+                What does it mean to be a B Corp organisation? We believe
+                success isn’t just about how much money you make – or how many
+                hours you work. It’s also about how you treat people, and the
+                environment. What you put back into the world. That’s why we’re
+                a B Corporation. We believe in sticking to the highest standards
+                of social purpose as outlined by B Lab: a non-profit
+                organisation changing how the world does business. It means our
+                business is a force for good. After a long audit we certified in
+                January 2020 and have joined a fantastic club of other
+                businesses working together to make a positive change in the
+                world.
+              </p>
+              <p>
+                What are we committing to? These are the areas of our business
+                we are tracking and measuring for 2020/21:
+              </p>
+              <ul>
+                <li>
+                  <p>Diversity in the workplace</p>
+                </li>
+                <li>
+                  <p>Curbing our energy consumption</p>
+                </li>
+                <li>
+                  <p>Maintaining equal pay</p>
+                </li>
+                <li>
+                  <p>Aiming to be Carbon Neutral</p>
+                </li>
+                <li>
+                  <p>Staff well-being</p>
+                </li>
+                <li>
+                  <p>Corporate governance</p>
+                </li>
+                <li>
+                  <p>Community/Local charitable donations</p>
+                </li>
+              </ul>
+            </BcorpFirstText>
+            <ImageContainer>
+              <BcorpLogo
+                fluid={data.allSanityAbout.edges[0].node.bCorpLogo.asset.fluid}
+                // style={{ height: '50%' }}
+              />
+            </ImageContainer>
+          </Text>
         </TextContainer>
-        <Img
-          fluid={data.allSanityAbout.edges[0].node.bgImageOne.asset.fluid}
-          style={{
-            position: 'absolute',
-            zIndex: 1,
-            width: '50rem',
-            top: '-10%',
-            right: '-10%',
-          }}
-        />
-        <Img
-          fluid={data.allSanityAbout.edges[0].node.bgImageTwo.asset.fluid}
-          style={{
-            position: 'absolute',
-            zIndex: 2,
-            width: '60rem',
-            top: '55%',
-            right: '-4%',
-          }}
-        />
-        <Img
-          fluid={data.allSanityAbout.edges[0].node.bgImageThree.asset.fluid}
-          style={{
-            position: 'absolute',
-            zIndex: 2,
-            width: '60rem',
-            top: '-30%',
-            left: '-20%',
-          }}
-        />
+        <FirstBubble>
+          <Img
+            fluid={data.allSanityAbout.edges[0].node.bgImageThree.asset.fluid}
+            style={{
+              width: '35vw',
+            }}
+          />
+        </FirstBubble>
+        <SecondBubble>
+          <Img
+            fluid={data.allSanityAbout.edges[0].node.bgImageTwo.asset.fluid}
+            style={{
+              width: '50vh',
+            }}
+          />
+        </SecondBubble>
+        <ThirdBubble>
+          <Img
+            fluid={data.allSanityAbout.edges[0].node.bgImageThree.asset.fluid}
+            style={{
+              width: '35vw',
+            }}
+          />
+        </ThirdBubble>
       </Main>
     </Layout>
   );
@@ -158,6 +275,13 @@ export const query = graphql`
           }
           bgImageThree {
             ...ImageWithPreview
+            asset {
+              fluid {
+                ...GatsbySanityImageFluid_noBase64
+              }
+            }
+          }
+          bCorpLogo {
             asset {
               fluid {
                 ...GatsbySanityImageFluid_noBase64

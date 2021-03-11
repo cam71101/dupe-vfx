@@ -3,7 +3,7 @@ import Layout from '../components/Layout';
 import WorkCard from '../components/WorkCard';
 
 import styled from 'styled-components';
-import colours from '../styles/colours';
+import colours from '../styles/theme';
 import sizes from '../styles/sizes';
 import { graphql } from 'gatsby';
 

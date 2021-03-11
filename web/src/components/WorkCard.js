@@ -2,13 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import SanityImage from 'gatsby-plugin-sanity-image';
 import { Link } from 'gatsby';
-import colours from '../styles/colours';
 
 const Title = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
-  color: ${colours.white};
+  color: ${({ theme }) => theme.white};
   opacity: 1;
   z-index: 2;
   display: flex;

@@ -5,7 +5,7 @@ import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import Card from '../components/NewsCard';
 import sizes from '../styles/sizes';
-import colours from '../styles/colours';
+import colours from '../styles/theme';
 
 const Main = styled.main`
   width: 100vw;
@@ -14,12 +14,15 @@ const Main = styled.main`
 `;
 
 const Content = styled.section`
-  width: 65%;
+  width: ${({ theme }) => theme.containerMobileWidth};
   margin: auto;
   padding-top: ${sizes.paddingTop};
-  padding-bottom: 15rem;
+  padding-bottom: 10%;
   background-color: transparent;
   z-index: 1;
+  @media ${({ theme }) => theme.laptop} {
+    width: ${sizes.containerWidth};
+  }
 `;
 
 const CardsContainer = styled.div`

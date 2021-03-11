@@ -1,10 +1,11 @@
 // Burger.styled.js
 import styled from 'styled-components';
+
 export const StyledBurger = styled.button`
   visibility: visible;
   position: absolute;
   top: 40%;
-  right: 20%;
+  right: 8%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;

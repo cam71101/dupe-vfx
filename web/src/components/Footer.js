@@ -6,8 +6,7 @@ import { faInstagram, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
-import colours from '../styles/colours';
-import sizes from '../styles/sizes';
+import theme from '../styles/theme';
 
 const Root = styled.footer`
   position: absolute;
@@ -16,19 +15,18 @@ const Root = styled.footer`
   justify-content: center;
   align-items: center;
   z-index: 2;
-  background-color: ${colours.offWhite};
+  background-color: ${({ theme }) => theme.offWhite};
 `;
 
 const Container = styled.div`
-  width: 95%;
+  width: ${({ theme }) => theme.containerMobileWidth};
   margin: auto;
   display: flex;
-
   align-items: center;
-  padding-top: 6%;
-  padding-bottom: 6%;
+  padding-top: 4vh;
+  padding-bottom: 4vh;
   @media ${({ theme }) => theme.laptop} {
-    width: ${sizes.containerWidth};
+    width: ${({ theme }) => theme.containerWidth};
   }
 `;
 
@@ -46,7 +44,6 @@ const Social = styled.div`
   justify-content: center;
   align-items: center;
   > * {
-    ${'' /* margin: 1rem; */}
     width: 3rem;
     display: flex;
     justify-content: center;
@@ -56,7 +53,7 @@ const Social = styled.div`
 const Contact = styled.div`
   flex: 1;
   > h6 {
-    color: black;
+    color: ${({ theme }) => theme.black};
     text-align: end;
   }
 `;
@@ -80,12 +77,12 @@ const Icon = styled(FontAwesomeIcon)`
 `;
 
 const Footer = ({ logo, color }) => {
-  let bgColor = colours.offWhite;
-  let fgColor = colours.black;
+  let bgColor = theme.offWhite;
+  let fgColor = theme.black;
 
   if (color === 'black') {
-    bgColor = colours.black;
-    fgColor = colours.offWhite;
+    bgColor = theme.black;
+    fgColor = theme.offWhite;
   }
 
   return (
@@ -113,19 +110,5 @@ const Footer = ({ logo, color }) => {
     </Root>
   );
 };
-
-// export const query = graphql`
-//   query FooterQuery {
-//     file(
-//       relativePath: { eq: "dupe_logotype-visual-effects_rgb_off-white.png" }
-//     ) {
-//       childImageSharp {
-//         fluid {
-//           ...GatsbyImageSharpFluid_noBase64
-//         }
-//       }
-//     }
-//   }
-// `;
 
 export default Footer;

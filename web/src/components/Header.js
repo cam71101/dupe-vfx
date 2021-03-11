@@ -27,6 +27,7 @@ const MainContainer = styled.div`
 const Container = styled.div`
   display: flex;
   visibility: hidden;
+  overflow: hidden;
   width: 100%;
   justify-content: flex-end;
   @media ${({ theme }) => theme.tablet} {
@@ -65,6 +66,8 @@ const Text = styled.span`
   }
 `;
 
+const BurgerContainer = styled.div``;
+
 const links = ['WORK', 'ABOUT', 'JOIN US', 'NEWS'];
 
 const Header = ({ logo, open, setOpen }) => {
@@ -72,10 +75,10 @@ const Header = ({ logo, open, setOpen }) => {
     <Root>
       <MainContainer>
         <Link to="/">{logo ? <Image fluid={logo} /> : <Image />}</Link>
-        <div>
+        <BurgerContainer>
           <Burger open={open} setOpen={setOpen} />
           <Menu open={open} setOpen={setOpen} />
-        </div>
+        </BurgerContainer>
         <Container>
           {links.map((value) => (
             <TextContainer>

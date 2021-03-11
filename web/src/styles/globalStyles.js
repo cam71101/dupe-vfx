@@ -1,9 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
-import breakpoints from './breakpoints';
-
 import reset from 'styled-reset';
 
-import colors from './colours';
+import theme from './theme';
 
 const GlobalStyle = createGlobalStyle` 
    ${reset}
@@ -30,102 +28,94 @@ h2, h3, h4, h5, h6, p {
 
 h1 {
     margin: 0;
-    font-size: 30px; 
+    font-size: 40px; 
     font-weight: 400;
-    color: ${colors.offWhite};
+    color: ${theme.offWhite};
     margin-bottom: 1.5rem;
     font-family: 'Stanley Regular';
     margin-bottom: 5%;
 
-    @media ${breakpoints.mobileS} {
-      font-size: 40px;  
-    }
 
-    @media ${breakpoints.mobileM} {
+    @media ${theme.mobileM} {
       font-size: 50px;  
     }
 
-     @media ${breakpoints.mobileL} {
+     @media ${theme.mobileL} {
       font-size: 60px;  
     }
     
     
-    @media ${breakpoints.tablet} {
+    @media ${theme.tablet} {
       font-size: 100px;  
     }
-    @media ${breakpoints.laptop} {
+    @media ${theme.laptop} {
       font-size: 110px;  
     }
-     @media ${breakpoints.laptopL} {
+     @media ${theme.laptopL} {
       font-size: 150px;  
     }
 }
 
   h2 {
     margin: 0;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 600;
     font-family: 'Euclid Light';
     margin-bottom: 2rem;
     margin-top: 2rem;
     text-transform: uppercase;
-    color: ${colors.offWhite};
+    color: ${theme.offWhite};
+
+    @media ${theme.tablet} {
+     font-size: 1.5rem;
+    }
     
-    @media ${breakpoints.laptopL} {
+    @media ${theme.laptopL} {
      font-size: 2.3rem; 
     }
   }
 
   h3 {
     margin-bottom: 3%;
-    font-size: 1rem;
+    font-size: 1.3rem;
     font-family: 'Stanley Regular';
     font-weight: 100;
-    line-height: 1.2rem;
+    line-height: 1.6rem;
     letter-spacing: .01rem;
 
 
-    @media ${breakpoints.mobileL} {
-      font-size: 1.4rem;
-      letter-spacing: .03rem;
-      line-height: 2rem;
-    }
-
-    @media ${breakpoints.tablet} {
+    @media ${theme.tablet} {
       font-size: 1.5rem;
       letter-spacing: .03rem;
     }
 
 
-    @media ${breakpoints.laptop} {
+    @media ${theme.laptop} {
      font-size: 2rem;
      line-height: 2.5rem;
       letter-spacing: .08rem;
     }
 
-    @media ${breakpoints.laptopL} {
+    @media ${theme.laptopL} {
      font-size: 2.5rem;
      line-height: 3.5rem;
       letter-spacing: .1rem;
     }
     
-    ${
-      '' /* @media ${breakpoints.laptopL} {
-     font-size: 2rem;
-     line-height: 3rem;
-     letter-spacing: .15rem;
-    } */
-    }
   }
   h4 {
     margin: 0;
-    font-size: 1.4rem
+    font-size: .8rem;
+    @media ${theme.tablet} {
+      font-size: 1.4rem;
+      line-height: 1.8rem;
+    }
   }
   h5 {
     margin: 0;
     font-size: .7rem;
     line-height: 1rem;
-    @media ${breakpoints.tablet} {
+    @media ${theme.tablet} {
       font-size: 1rem;
       line-height: 1.8rem;
     }
@@ -135,11 +125,11 @@ h1 {
     font-size: .3rem;
     font-family: 'Euclid Light';
 
-    @media ${breakpoints.mobileL} {
+    @media ${theme.mobileL} {
        font-size: .7rem;
     }
 
-    @media ${breakpoints.laptopL} {
+    @media ${theme.laptopL} {
        font-size: .9rem;
     }
   }
@@ -147,7 +137,7 @@ h1 {
     margin-bottom: 1rem;
     font-size: 1rem;
     line-height: 2.1rem;
-    @media ${breakpoints.tablet} {
+    @media ${theme.tablet} {
       font-size: 1.1rem;
     }
 
@@ -161,7 +151,7 @@ h1 {
   }
   span {
     font-size: .7rem;
-     @media ${breakpoints.laptopL} {
+     @media ${theme.laptopL} {
        font-size: 1rem;
     }
   }
@@ -171,33 +161,9 @@ h1 {
   li {
     display: list-item;
     text-align: -webkit-match-parent;
+    margin-left: 8%
   }
-  ${
-    '' /* .svg-inline--fa {
-    font-size: .7rem;
 
-    @media ${breakpoints.mobileL} {
-      font-size: 1rem;
-    }
-
-    @media ${breakpoints.laptopL} {
-      font-size: 1.5rem;
-    }
-  } */
-  }
-  ${
-    '' /* [data-lqip] {
-      width: 100rem
-    }
-  [data-loading] {
-      width: 100rem
-    } */
-  }
 `;
 
 export default GlobalStyle;
-
-// ${reset}
-// *, *:before, *:after {
-//   box-sizing: border-box;
-// }

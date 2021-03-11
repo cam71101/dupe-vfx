@@ -47,7 +47,8 @@ const NotFoundPage = () => {
           </ul>
           <h4>
             You can return to our homepage by clicking here, or you can try
-            searching for the content you are seeking by clicking here.
+            searching for the content you are seeking by clicking{' '}
+            <Link to={'/'}>here.</Link>
           </h4>
         </Container>
       </Main>

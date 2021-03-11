@@ -8,10 +8,9 @@ import './Layout.css';
 import { StaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import Seo from '../components/SEO';
-import theme from '../styles/colours';
+import theme from '../styles/theme';
 
 const Main = styled.main`
-  min-height: 100vh;
   max-width: 100vw;
   -ms-overflow-style: none;
 `;
@@ -29,13 +28,6 @@ const Image = styled(Img)`
 const Layout = (props) => {
   const [isHide, setIsHide] = React.useState(0);
   const [open, setOpen] = React.useState(false);
-  // React.useEffect(() => {
-  //   window.addEventListener('scroll', hideBar);
-  // }, []);
-
-  // const hideBar = () => {
-  //   window.scrollY > 300 ? setIsHide(1) : setIsHide(0);
-  // };
 
   React.useEffect(() => {
     if (open) {

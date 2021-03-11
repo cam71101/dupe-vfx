@@ -7,7 +7,7 @@ import SanityImage from 'gatsby-plugin-sanity-image';
 import { graphql } from 'gatsby';
 
 import Layout from '../components/Layout';
-import colours from '../styles/colours';
+import colours from '../styles/theme';
 import sizes from '../styles/sizes';
 import breakpoints from '../styles/breakpoints';
 import Video from '../components/Video';
@@ -31,17 +31,6 @@ const Container = styled.div`
   @media ${({ theme }) => theme.laptop} {
     width: ${sizes.containerWidth};
   }
-`;
-
-const HeaderSection = styled.section`
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  position: relative;
-  height: 100vh;
-  overflow: hidden;
 `;
 
 const PlayButton = styled(FontAwesomeIcon)`
@@ -78,7 +67,7 @@ const BodyContainer = styled.div`
     display: flex;
     justify-content: center;
   }
-  > div > figure > img {
+  > div > div > figure > img {
     max-width: 100%;
   }
   margin-bottom: 10%;
@@ -128,19 +117,6 @@ const CreditsContainer = styled.div`
   }
 `;
 
-/* <VideoPlayer
-              style={{
-                transform: 'scale(1.5) translate(16%, 10%)',
-                transition: 'opacity 500ms ease',
-              }}
-              src={data.post.showReel}
-              title={data.post.title}
-              allow="autoplay; fullscreen"
-              frameBorder="0"
-              width="1920"
-              height="1080"
-            /> */
-
 const WorkPost = ({ data }) => {
   const [isLoading, setIsLoading] = React.useState(true);
 
@@ -156,15 +132,8 @@ const WorkPost = ({ data }) => {
     opacity = 0;
   }
 
-  console.log(data.post.showReel);
-
-  //https: player.vimeo.com/video/410736873?app_id=122963?&autoplay=1&loop=1&title=0&byline=0&portrait=0&muted=1&background=1
-
-  //https://player.vimeo.com/video/410351187?app_id=122963?&autoplay=1&loop=1&title=0&byline=0&portrait=0&muted=1&background=1
-
   return (
     <Layout article title={data.post.title} description={data.post.subtitle}>
-      {/* <HeaderSection> */}
       <VideoSection>
         {data.post.showReel ? (
           <Video
@@ -198,7 +167,6 @@ const WorkPost = ({ data }) => {
           />
         </>
       </VideoSection>
-      {/* </HeaderSection> */}
       <Section>
         <Container>
           <h1>{data.post.title}</h1>

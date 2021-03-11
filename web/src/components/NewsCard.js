@@ -5,8 +5,17 @@ import SanityImage from 'gatsby-plugin-sanity-image';
 
 const StyledLink = styled(Link)`
   overflow: hidden;
-  width: 25%;
+  width: 100%;
   position: relative;
+  @media ${({ theme }) => theme.mobileL} {
+    width: 50%;
+  }
+  @media ${({ theme }) => theme.tablet} {
+    width: 33%;
+  }
+  @media ${({ theme }) => theme.laptopL} {
+    width: 25%;
+  }
   :hover {
     cursor: pointer;
   }
@@ -38,11 +47,10 @@ const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
 
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
-  padding-left: 1.5rem;
+  padding-top: 3%;
+  padding-bottom: 5%;
+  padding-left: 8%;
   background-color: inherit;
-
 `;
 
 const NewsCard = ({ date, title, image, link }) => {
