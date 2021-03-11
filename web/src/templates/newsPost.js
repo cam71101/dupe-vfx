@@ -8,7 +8,7 @@ import { graphql } from 'gatsby';
 
 const Section = styled.section`
   max-width: 100vw;
-  min-height: 100vh;
+  min-height: 90vh;
   padding-top: ${({ theme }) => theme.paddingTop};
   padding-bottom: 15rem;
 `;
@@ -18,8 +18,13 @@ const Container = styled.div`
   color: ${({ theme }) => theme.white};
 
   @media ${({ theme }) => theme.laptop} {
+    width: 70%;
+  }
+
+  @media ${({ theme }) => theme.laptopL} {
     width: 52%;
   }
+
   > h1 {
     color: ${colours.offWhite};
   }

@@ -19,18 +19,24 @@ const Main = styled.main`
 const TextContainer = styled.div`
   color: ${colours.white};
   width: ${({ theme }) => theme.containerMobileWidth};
-  padding-top: ${sizes.paddingTop};
+  padding-top: ${({ theme }) => theme.paddingTop};
   margin: auto;
   background-color: transparent !important;
   position: relative;
   z-index: 4;
   @media ${({ theme }) => theme.laptop} {
-    width: ${sizes.containerWidth};
+    width: ${({ theme }) => theme.containerTabletWidth};
+  }
+  @media ${({ theme }) => theme.laptopL} {
+    width: ${({ theme }) => theme.containerWidth};
   }
 `;
 
 const Title = styled.div`
   width: 100%;
+  h1:first-child {
+    margin-bottom: 0;
+  }
   @media ${({ theme }) => theme.desktop} {
     width: 80%;
   }
@@ -68,6 +74,12 @@ const BcorpLogo = styled(Img)`
   filter: invert(100%);
 `;
 
+const BCorpTitle = styled(Title)`
+  h1:first-child {
+    margin-bottom: 5%;
+  }
+`;
+
 const BcorpFirstText = styled(FirstText)`
   order: 3;
   @media ${({ theme }) => theme.tablet} {
@@ -80,7 +92,6 @@ const ImageContainer = styled.div`
   height: 100%;
   order: 1;
   z-index: 4;
-
   @media ${({ theme }) => theme.tablet} {
     width: 50%;
     order: 3;
@@ -91,7 +102,7 @@ const FirstBubble = styled.div`
   position: absolute;
   zindex: 0;
   top: -2%;
-  right: -5%;
+  right: -120%;
   @media ${({ theme }) => theme.tablet} {
     top: -10%;
     right: -5%;
@@ -102,7 +113,7 @@ const SecondBubble = styled.div`
   position: absolute;
   zindex: 0;
   top: 60%;
-  right: -5%;
+  right: -120%;
   @media ${({ theme }) => theme.tablet} {
     top: 70%;
     right: -5%;
@@ -112,11 +123,11 @@ const SecondBubble = styled.div`
 const ThirdBubble = styled.div`
   position: absolute;
   zindex: 0;
-  top: -2%;
-  left: -5%;
+  top: 25%;
+  left: -120%;
   @media ${({ theme }) => theme.tablet} {
-    top: -2%;
-    left: -5%;
+    top: 25%;
+    left: -15%;
   }
 `;
 
@@ -164,12 +175,12 @@ const About = ({ data }) => {
               <p>Happy team, happy clients. Everybody wins.</p>
             </SecondText>
           </Text>
-          <Title>
+          <BCorpTitle>
             <h1>We are a B Corp!</h1>
             <h3>
               Stunning visual effects by treating people & the planet properly.
             </h3>
-          </Title>
+          </BCorpTitle>
           <Text>
             <BcorpFirstText>
               <p>
@@ -225,7 +236,7 @@ const About = ({ data }) => {
           <Img
             fluid={data.allSanityAbout.edges[0].node.bgImageThree.asset.fluid}
             style={{
-              width: '35vw',
+              width: '40rem',
             }}
           />
         </FirstBubble>
@@ -233,7 +244,7 @@ const About = ({ data }) => {
           <Img
             fluid={data.allSanityAbout.edges[0].node.bgImageTwo.asset.fluid}
             style={{
-              width: '50vh',
+              width: '40rem',
             }}
           />
         </SecondBubble>
@@ -241,7 +252,7 @@ const About = ({ data }) => {
           <Img
             fluid={data.allSanityAbout.edges[0].node.bgImageThree.asset.fluid}
             style={{
-              width: '35vw',
+              width: '40rem',
             }}
           />
         </ThirdBubble>

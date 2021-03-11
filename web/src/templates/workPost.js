@@ -14,7 +14,7 @@ import Video from '../components/Video';
 
 const Section = styled.section`
   width: 100%;
-  padding-top: 4rem;
+  padding-top: 3vh;
   margin-bottom: 10%;
 `;
 
@@ -29,7 +29,10 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   @media ${({ theme }) => theme.laptop} {
-    width: ${sizes.containerWidth};
+    width: ${({ theme }) => theme.containerTabletWidth};
+  }
+  @media ${({ theme }) => theme.laptopL} {
+    width: ${({ theme }) => theme.containerWidth};
   }
 `;
 
@@ -108,9 +111,6 @@ const YouTube = styled.iframe`
 const CreditsContainer = styled.div`
   padding-left: 0rem;
   order: 1;
-  > h3 {
-    margin-top: 2rem;
-  }
   @media ${breakpoints.tablet} {
     padding-left: 10rem;
     order: 3;

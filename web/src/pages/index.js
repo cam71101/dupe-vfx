@@ -55,6 +55,9 @@ const Container = styled.div`
   width: ${({ theme }) => theme.containerMobileWidth};
   margin: auto;
   @media ${({ theme }) => theme.laptop} {
+    width: ${({ theme }) => theme.containerTabletWidth};
+  }
+  @media ${({ theme }) => theme.laptopL} {
     width: ${({ theme }) => theme.containerWidth};
   }
 `;

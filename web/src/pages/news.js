@@ -8,6 +8,7 @@ import sizes from '../styles/sizes';
 import colours from '../styles/theme';
 
 const Main = styled.main`
+  min-height: 90vh;
   width: 100vw;
   background-color: ${colours.black};
   positon: absolute;
@@ -16,12 +17,15 @@ const Main = styled.main`
 const Content = styled.section`
   width: ${({ theme }) => theme.containerMobileWidth};
   margin: auto;
-  padding-top: ${sizes.paddingTop};
+  padding-top: ${({ theme }) => theme.paddingTop};
   padding-bottom: 10%;
   background-color: transparent;
   z-index: 1;
   @media ${({ theme }) => theme.laptop} {
-    width: ${sizes.containerWidth};
+    width: ${({ theme }) => theme.containerTabletWidth};
+  }
+  @media ${({ theme }) => theme.laptopL} {
+    width: ${({ theme }) => theme.containerWidth};
   }
 `;
 

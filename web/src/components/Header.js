@@ -20,7 +20,10 @@ const MainContainer = styled.div`
   width: ${({ theme }) => theme.containerMobileWidth};
   height: 8rem;
   @media ${({ theme }) => theme.laptop} {
-    width: ${sizes.containerWidth};
+    width: ${({ theme }) => theme.containerTabletWidth};
+  }
+  @media ${({ theme }) => theme.laptopL} {
+    width: ${({ theme }) => theme.containerWidth};
   }
 `;
 

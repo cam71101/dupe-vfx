@@ -11,6 +11,7 @@ import Seo from '../components/SEO';
 import theme from '../styles/theme';
 
 const Main = styled.main`
+  min-height: 100vh;
   max-width: 100vw;
   -ms-overflow-style: none;
 `;

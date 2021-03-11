@@ -12,6 +12,7 @@ export default {
   desktop: `(min-width: 2560px)`,
   desktopL: `(min-width: 3000px)`,
   containerWidth: '65%',
+  containerTabletWidth: '85%',
   containerMobileWidth: '95%',
-  paddingTop: '12rem',
+  paddingTop: '16vh',
 };

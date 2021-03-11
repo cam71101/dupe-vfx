@@ -26,6 +26,9 @@ const Container = styled.div`
   padding-top: 4vh;
   padding-bottom: 4vh;
   @media ${({ theme }) => theme.laptop} {
+    width: ${({ theme }) => theme.containerTabletWidth};
+  }
+  @media ${({ theme }) => theme.laptopL} {
     width: ${({ theme }) => theme.containerWidth};
   }
 `;

@@ -62,16 +62,14 @@ h1 {
     font-weight: 600;
     font-family: 'Euclid Light';
     margin-bottom: 2rem;
-    margin-top: 2rem;
     text-transform: uppercase;
     color: ${theme.offWhite};
-
     @media ${theme.tablet} {
      font-size: 1.5rem;
     }
     
     @media ${theme.laptopL} {
-     font-size: 2.3rem; 
+     font-size: 3rem; 
     }
   }
 
